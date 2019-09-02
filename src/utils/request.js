@@ -8,19 +8,11 @@ const request=(method,url,data)=>{
             params:method==='get'?data:null,
             data:method==='post'?data:null,
             timeout:2000,
-            transformResponse:[(response)=>{
-                response=JSON.parse(response);
-                if(response.status===0){
-                   return reject('错误原因：'+response.message)
-                }else{
-                    return response
-                }
-              }]
         }
         axios.request(option).then((res)=>{
-             resolve(typeof res.data === 'object'? res.data:JSON.parse(res.data));
+            return resolve(typeof res.data === 'object'? res.data:JSON.parse(res.data));
         }).catch((err)=>{
-             reject(err)
+            return reject(err)
         })
     })
 }
