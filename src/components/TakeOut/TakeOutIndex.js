@@ -1,8 +1,5 @@
 import React from 'react';
 class TakeOutIndex extends React.Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         return (
             <div style={{background:'url(../../assets/img/unbarfirst.png)'}}>
