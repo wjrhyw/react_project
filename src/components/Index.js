@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import TakeOutIndex from './TakeOut/TakeOutIndex';
+import DingDancomp from './Orders/DingDancomp';
+
 class Index extends Component{
   constructor(props){
     super(props);
@@ -76,6 +78,7 @@ class Index extends Component{
           >
             {this.renderContent(TakeOutIndex)}
           </TabBar.Item>
+
           <TabBar.Item
             icon={
               <div style={{
@@ -100,8 +103,9 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(TakeOutIndex)}
+            {this.renderContent(DingDancomp)}
           </TabBar.Item>
+
           <TabBar.Item
             icon={
               <div style={{
