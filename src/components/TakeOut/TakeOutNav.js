@@ -63,7 +63,7 @@ class TakeOutNav extends React.Component{
                                         return (
                                             <li style={{float:'left',width:'20%',marginBottom:'10px'}}>
                                                 <img src={item.url} style={{width:'42px',height:'42px'}} alt='...'/>
-                                                <p>
+                                                <p style={{marginTop:'8px'}}>
                                                     {
                                                         item.title
                                                     }
