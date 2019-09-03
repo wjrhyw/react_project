@@ -1,0 +1,11 @@
+.inputSearch{
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    float: left;
+}
+.buttonSearch{
+    float: right;
+    width: 30%;
+}

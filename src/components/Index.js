@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import TakeOutIndex from './TakeOut/TakeOutIndex';
 import DingDancomp from './Orders/DingDancomp';
+import SearchIndex from './Search/SearchIndex';
 
 class Index extends Component{
   constructor(props){
@@ -76,7 +77,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(TakeOutIndex)}
+            {this.renderContent(SearchIndex)}
           </TabBar.Item>
 
           <TabBar.Item
