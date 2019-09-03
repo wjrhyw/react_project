@@ -9,7 +9,7 @@ class TakeOutHead extends React.Component{
                     onLeftClick={() => console.log('地理位置定位')}
                     leftContent={[
                         <p style={{fontSize:'13px',width:'250px',textAlign:'left'}}>
-                            你的地理位置是昆明昆明昆明
+                            昆明理工大学
                         </p>
                     ]}
                 ></NavBar>
