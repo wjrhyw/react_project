@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import Index from './components/Index'
+import Index from './components/Index';
 class App extends Component{
   render(){
     return (
-      <div >
+      <div>
           <Index/>
       </div>
     )

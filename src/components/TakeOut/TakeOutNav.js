@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd-mobile';
+import '../../assets/css/takeout/takeoutnav.css'
 class TakeOutNav extends React.Component{
     constructor(props){
         super(props);
@@ -35,7 +36,7 @@ class TakeOutNav extends React.Component{
     }
     render(){
        return (
-        <div>
+        <div >
             <Carousel
                 dots={false}
                 autoplay={true}
@@ -45,7 +46,7 @@ class TakeOutNav extends React.Component{
                 {
                     this.state.imgurl.map((val,index)=>{
                         return (
-                            <img src={val} key={index} alt='...' style={{height:'130px'}}/>
+                            <img className='nav_firstimg' src={val} key={index} alt='...'/>
                         )
                     })
                 }
@@ -55,15 +56,15 @@ class TakeOutNav extends React.Component{
                 dotActiveStyle={{width:'10px',height:'1px',backgroundColor:'gray'}}               
                 style={{marginTop:'20px'}}>
                 {
-                    this.state.list.map((val)=>{
+                    this.state.list.map((val,index)=>{
                         return (
-                            <ul style={{listStyle:'none',height:'150px',width:'100%'}}>
+                            <ul className='nav_ul' key={index}>
                                 {
-                                    val.map((item)=>{
+                                    val.map((item,index)=>{
                                         return (
-                                            <li style={{float:'left',width:'20%',marginBottom:'10px'}}>
-                                                <img src={item.url} style={{width:'42px',height:'42px'}} alt='...'/>
-                                                <p style={{marginTop:'8px'}}>
+                                            <li className='nav_ul_li' key={index}>
+                                                <img className='nav_ul_li_img' src={item.url} alt='...'/>
+                                                <p className='nav_ul_li_p'>
                                                     {
                                                         item.title
                                                     }

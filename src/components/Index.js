@@ -14,15 +14,25 @@ class Index extends Component{
   }
   renderContent(Component) {
     return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center',width:'100%' }}>
+      <div id='app' style={{ backgroundColor: 'white', height: '100%', textAlign: 'center',width:'100%' }}>
           <Component/>
       </div>
     );
   }
+  // componentDidMount(){
+  //   let el=document.getElementById('app');
+  //   el.addEventListener('scroll',function(){
+  //     console.log('被滑动',this.scrollTop);
+  //     if(this.scrollTop==353){
+  //       console.log('应该被停止',TakeOutIndex);
+  //       return
+  //     }
+  //   });
+  // }
   render(){
     return (
       <div style={{textAlign:'center'}}>
-        <div style={{ position: 'fixed', height:'100%', width: '100%', top: 0 }}>
+        <div  style={{ position: 'fixed', height:'100%', width: '100%', top: 0 ,}}>
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
