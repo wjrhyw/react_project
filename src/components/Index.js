@@ -141,7 +141,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(TakeOutIndex)}
+            {this.renderContent(MeFile)}
           </TabBar.Item>
         </TabBar>
       </div>
