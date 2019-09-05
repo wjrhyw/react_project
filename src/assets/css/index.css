@@ -3,47 +3,6 @@
     padding:0;
 }
 
-/*DingDan-Style*/
-.CardOutSet{
-    padding: 10px 15px 0px 15px;
-    height: 150px;
-    width: 100%;
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    justify-content:center;
+body,html{
+    height:100%;
 }
-
-.CardShopIcon{
-    height: 45px;
-    width: 45px;
-    background: #239e9e;
-    margin-right: 10px
-}
-
-.CardInsideRight{
-    flex: 1;
-    flex-direction:column;
-    height: 100%;
-    border-bottom: 0.5px solid rgba(224, 224, 224, 0.95);
-    display: flex;
-    background-color: rgb(255, 255, 255);
-}
-
-.CardInsideRighchild1{
-    flex: 1;
-    display: flex;
-    background-color: rgb(171, 173, 28);
-}
-
-.CardInsideRighchild2{
-    flex: 1;
-    display: flex;
-    background-color: rgb(40, 218, 114);
-}
-
-.CardInsideRighchild3{
-    flex: 1;
-    display: flex;
-    /*background-color: rgb(29, 206, 197);*/
-}
-/*DingDan-Style*/

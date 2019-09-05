@@ -1,0 +1,20 @@
+.nav_firstimg{
+    height:130px
+}
+.nav_ul{
+    list-style:none;
+    height:150px;
+    width:100%
+}
+.nav_ul_li{
+    float:left;
+    width:20%;
+    margin-bottom:10px
+}
+.nav_ul_li_img{
+    width:42px;
+    height:42px
+}
+.nav_ul_li_p{
+    margin-top:8px
+}
