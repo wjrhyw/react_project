@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {NavBar,Icon,Flex, WhiteSpace} from 'antd-mobile';
+import '../../assets/font-awesome-4.7.0/css/font-awesome.min.css';
 import '../../assets/css/Mefile/Mefile.css';
 
 class MeFile extends Component {
@@ -59,27 +60,27 @@ class MeFile extends Component {
                            <li className="other-one">
                                 <i className="fa fa-file-text-o"></i>
                                 我的订单
-                                <i class="fa fa-angle-right"></i>
+                                <i className="fa fa-angle-right"></i>
                             </li>
                            <li className="other-one">
                                 <i className="fa fa-file-text-o"></i>
                                 积分商城
-                                <i class="fa fa-angle-right"></i>
+                                <i className="fa fa-angle-right"></i>
                             </li>
                            <li className="other-one">
                                 <i className="fa fa-file-text-o"></i>
                                 饿了么会员卡
-                                <i class="fa fa-angle-right"></i>
+                                <i className="fa fa-angle-right"></i>
                             </li>
                            <li className="other-one">
                                 <i className="fa fa-file-text-o"></i>
                                 服务中心
-                                <i class="fa fa-angle-right"></i>
+                                <i className="fa fa-angle-right"></i>
                             </li>
                            <li className="other-one">
                                 <i className="fa fa-file-text-o"></i>
                                 下载饿了么APP
-                                <i class="fa fa-angle-right"></i>
+                                <i className="fa fa-angle-right"></i>
                             </li>
                        </ul>
                     </Flex.Item>
