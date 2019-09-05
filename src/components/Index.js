@@ -4,6 +4,7 @@ import TakeOutIndex from './TakeOut/TakeOutIndex';
 import DingDancomp from './Orders/DingDancomp';
 import SearchIndex from './Search/SearchIndex';
 import MeFile from './MeFile/MeFile';
+
 class Index extends Component{
   constructor(props){
     super(props);

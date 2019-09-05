@@ -2,8 +2,6 @@ import React,{Component} from 'react';
 import {NavBar,Icon,Flex, WhiteSpace} from 'antd-mobile';
 import '../../assets/css/Mefile/Mefile.css';
 
-
-
 class MeFile extends Component {
     state = {
         username:"登录/注册",
