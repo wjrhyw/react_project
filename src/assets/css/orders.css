@@ -1,0 +1,99 @@
+/*DingDan-Style*/
+.CardOutSet{
+    padding: 10px 15px 0px 15px;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    justify-content:center;
+}
+
+.CardShopIcon{
+    height: 45px;
+    width: 45px;
+    background: #239e9e;
+    margin-right: 10px;
+    border-radius: 2%;
+}
+
+.CardInsideRight{
+    flex: 1;
+    flex-direction:column;
+    height: 100%;
+    border-bottom: 0.5px solid rgba(224, 224, 224, 0.95);
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+
+.CardInsideRighchild1{
+    flex: 1;
+    display: flex;
+    
+}
+
+.CardInsideRighchild2{
+    flex: 1;
+    display: flex;
+    
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.CardInsideRighchild3{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /*background-color: rgb(29, 206, 197);*/
+}
+
+.Carildbtn{
+margin-left: 10px;
+}
+
+.ArrowRight{
+	width: 10px;
+	height: 10px;
+	border-top: 1px solid rgb(112, 112, 112);
+	border-right: 1px solid rgb(112, 112, 112);
+	transform: rotate(45deg);
+}
+
+.status{
+    margin-top: 2px;
+    margin-left:auto;
+    font-size: 10px;
+}
+
+.MainInf{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 2px;
+}
+
+.MaininfTop{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:center;
+}
+
+.ShopName{
+    font-weight:400;
+    font-size:16px;
+    vertical-align: middle;
+}
+
+.Time{
+    margin-top: 5px;
+    font-size: 5px;
+    align-self:flex-start;
+}
+
+a{
+    color: black;
+}
+
+/*DingDan-Style*/

@@ -17,7 +17,7 @@ class TakeOutIndex extends React.Component{
                 <div style={{height:'45px'}}></div>
                 <TakeOutNav/> 
                 <TakeOutMid/>
-                <TakeOutList scroll={this.state.scroll>637?this.state.scroll:""}/>
+                <TakeOutList scroll={this.state.scroll>645?this.state.scroll:""}/>
             </div>
         )
     }
@@ -26,12 +26,12 @@ class TakeOutIndex extends React.Component{
         let that=this;
         el.addEventListener('scroll',function(){
             console.log(this.scrollTop);
-            if(this.scrollTop>637){
+            if(this.scrollTop>645){
                 that.setState({
                     scroll:this.scrollTop
                 })
             }
-            if(this.scrollTop<637){
+            if(this.scrollTop<645){
                 that.setState({
                     scroll:this.scrollTop
                 })
