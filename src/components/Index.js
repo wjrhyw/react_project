@@ -3,7 +3,7 @@ import { TabBar } from 'antd-mobile';
 import TakeOutIndex from './TakeOut/TakeOutIndex';
 import DingDancomp from './Orders/DingDancomp';
 import SearchIndex from './Search/SearchIndex';
-
+import MeFile from './MeFile/MeFile';
 class Index extends Component{
   constructor(props){
     super(props);
@@ -19,16 +19,6 @@ class Index extends Component{
       </div>
     );
   }
-  // componentDidMount(){
-  //   let el=document.getElementById('app');
-  //   el.addEventListener('scroll',function(){
-  //     console.log('被滑动',this.scrollTop);
-  //     if(this.scrollTop==353){
-  //       console.log('应该被停止',TakeOutIndex);
-  //       return
-  //     }
-  //   });
-  // }
   render(){
     return (
       <div style={{textAlign:'center'}}>
