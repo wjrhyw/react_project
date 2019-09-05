@@ -2,9 +2,8 @@ import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import TakeOutIndex from './TakeOut/TakeOutIndex';
 import DingDancomp from './Orders/DingDancomp';
-import SearchIndex from './Search/SearchIndex';
+import FindIndex from './Find/FindIndex';
 import MeFile from './MeFile/MeFile';
-
 class Index extends Component{
   constructor(props){
     super(props);
@@ -69,16 +68,16 @@ class Index extends Component{
                 background: `url(${require('../assets/img/barsearch.png')}) center center /  21px 21px no-repeat` }}
                 />
             }
-            title="搜索"
-            key="search"
-            selected={this.state.selectedTab === 'searchTab'}
+            title="发现"
+            key="find"
+            selected={this.state.selectedTab === 'findTab'}
             onPress={() => {
               this.setState({
-                selectedTab: 'searchTab',
+                selectedTab: 'findTab',
               });
             }}
           >
-            {this.renderContent(SearchIndex)}
+            {this.renderContent(FindIndex)}
           </TabBar.Item>
 
           <TabBar.Item

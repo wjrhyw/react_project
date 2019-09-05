@@ -1,6 +1,6 @@
 import React from 'react';
 import {WingBlank,NavBar,Icon,Flex} from 'antd-mobile';
-import "../../assets/css/search/searchindex.css"
+import "../../assets/css/find/searchindex.css"
 
 class SearchIndex extends React.Component{
     constructor(props){

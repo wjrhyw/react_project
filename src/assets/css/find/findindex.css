@@ -1,0 +1,10 @@
+.itemoption{
+    border: 1px solid #ddd;
+}
+.fulldiscount{
+    border: 1px solid #BF8EA1;
+    color:#BF8EA1;
+    border-radius: 5px;
+    padding: 1px 2px;
+    font-size: 12px;
+}
