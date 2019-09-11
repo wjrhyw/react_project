@@ -8,8 +8,8 @@ class TakeOutNav extends React.Component{
             imgurl:['http://p1.music.126.net/Pj5btpNr_LNYRnzkY2Oklw==/109951164340630437.jpg','http://p1.music.126.net/KxpKJc1IQmuYRQaoFCvi_g==/109951164340632770.jpg','http://p1.music.126.net/q5tGuVS--IY8sQCrItsDZQ==/109951164341168942.jpg'],
             list:[
                 [
-                    {title:'外码',url:'http://p2.music.126.net/lA1e5m3WtzBb9L7TAPf2zA==/109951164279740620.jpg?param=140y140'},
-                    {title:'外码',url:'http://p2.music.126.net/UBpqD1sEVKi8yFwXn2s8Qg==/109951164290157550.jpg?param=140y140'},
+                    {title:'美食',url:require('../../assets/img/1.png')},
+                    {title:'下午茶',url:require('../../assets/img/2.jpg')},
                     {title:'外码',url:'http://p2.music.126.net/K_84LZWdizS0cN7Hwl0laQ==/109951163353347041.jpg?param=140y140'},
                     {title:'外码',url:'http://p2.music.126.net/l_g4Wed5Rt_aMB5hwlaGrw==/109951164337806999.jpg?param=140y140'},
                     {title:'外码',url:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140'},

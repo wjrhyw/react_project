@@ -10,6 +10,26 @@
     font-size: 14px;
   
 }
+.flex_ul_first_li{
+    position:relative;
+}
+.flex_ul_last_li{
+    position:relative;
+}
+.flex_ul_last_li_img{
+    position: absolute;
+    top:2px;
+    right:12px;
+    width:11px;
+    height:11px;
+}
+.flex_ul_first_li_img{
+    position: absolute;
+    top:3px;
+    right:3px;
+    width:10px;
+    height:10px;
+}
 .tuijian{
     font-size:18px;
     color:'black';

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
-import TakeOutIndex from './TakeOut/TakeOutIndex';
+import TakeIndex from '../containers/TakeOut/TakeIndex'
 import DingDancomp from './Orders/DingDancomp';
 import FindIndex from './Find/FindIndex';
 import MeFile from './MeFile/MeFile';
@@ -51,7 +51,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(TakeOutIndex)}
+            {this.renderContent(TakeIndex)}
           </TabBar.Item>
         <TabBar.Item
             icon={
