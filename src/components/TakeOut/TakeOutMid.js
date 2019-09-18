@@ -14,7 +14,7 @@ class TakeOutMid extends React.Component{
             <div className='mid_index'>
                 <ul className='mid_index_ul'>
                     {
-                        this.state.uldata.map((val,index)=>{
+                        this.props.data.uldata.map((val,index)=>{
                             return <li key={index} className={index===0?'mid_index_ul_li_first':'mid_index_ul_li_second'} >
                                 <p className='mid_index_ul_li_title'>{val.title}</p>
                                 <p className='mid_index_ul_li_tip' >{val.tip}</p>
@@ -35,7 +35,7 @@ class TakeOutMid extends React.Component{
                         infinite={true}
                     >
                         {
-                            this.state.imgurl.map((val,index)=>{
+                            this.props.data.imgurl.map((val,index)=>{
                                 return (
                                     <img className='mid_index_img' src={val} key={index} alt='...'/>
                                 )
