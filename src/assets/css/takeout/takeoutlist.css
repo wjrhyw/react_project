@@ -48,6 +48,15 @@
 .ul_list li{
     height:150px;
     width:100%;
+    padding:10px 10px;
     background-color:#fff;
     border-bottom: 2px solid #F1EFF2;
+}
+
+.jian{
+    display: inline-block;
+    margin-right: 8px;
+}
+.tip{
+    margin-right:5px;
 }
