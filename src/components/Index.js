@@ -3,6 +3,7 @@ import { TabBar } from 'antd-mobile';
 import TakeIndex from '../containers/TakeOut/TakeIndex'
 import DingDancomp from './Orders/DingDancomp';
 import FindIndex from './Find/FindIndex';
+//import SearchIndex from './Find/SearchIndex';
 import MeFile from './MeFile/MeFile';
 class Index extends Component{
   constructor(props){

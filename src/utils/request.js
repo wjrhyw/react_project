@@ -8,7 +8,7 @@ const request=(method,url,data)=>{
             params:method==='get'?data:null,
             data:method==='post'?data:null,
             timeout:5000,
-        }
+        };
         axios.request(option).then((res)=>{
             return resolve(typeof res.data === 'object'? res.data:JSON.parse(res.data));
         }).catch((err)=>{
