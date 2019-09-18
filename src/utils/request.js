@@ -7,7 +7,7 @@ const request=(method,url,data)=>{
             url:baseUrl+url,
             params:method==='get'?data:null,
             data:method==='post'?data:null,
-            timeout:2000,
+            timeout:5000,
         }
         axios.request(option).then((res)=>{
             return resolve(typeof res.data === 'object'? res.data:JSON.parse(res.data));

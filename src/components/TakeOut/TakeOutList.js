@@ -23,11 +23,13 @@ class TakeOutList extends React.Component{
                 </ul>
                 <p style={this.props.scroll>643?{display:'block',height:'20px'}:{display:'none'}}></p>
                 <ul className='ul_list'>
-                    <li>测试</li>
-                    <li>测试</li>
-                    <li>测试</li>
-                    <li>测试</li>
-                    <li>测试</li>
+                    {
+                        this.props.data.list.map((val,index)=>{
+                            return (
+                                <li key={index}>{val.title}</li>
+                            )
+                        })
+                    }
                 </ul>
             </div>
         )

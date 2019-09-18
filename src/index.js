@@ -5,8 +5,9 @@ import 'antd-mobile/dist/antd-mobile.css';
 import './assets/css/index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import index_reducers from './store/reducers/index'
-const store=createStore(index_reducers)
+import indexReducers from './store/reducers/index'
+const store=createStore(indexReducers)
+console.log('========',store.getState());
 ReactDOM.render(
             <Provider store={store}>
             <App /> 

@@ -7,17 +7,18 @@ class TakeOutIndex extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            scroll:''
-        }
+            scroll:'',
+        };
     }
     render(){
         return (
             <div id='TakeOutIndex' style={{maxHeight: '100%',overflowY:'auto'}}>
-                <TakeOutHead scroll={this.state.scroll}/>
+                <p></p>
+                <TakeOutHead scroll={this.state.scroll} data={this.props.data.takeouthead} gps={this.props.gps}/>
                 <div style={{height:'45px'}}></div>
-                <TakeOutNav/> 
-                <TakeOutMid/>
-                <TakeOutList scroll={this.state.scroll>643?this.state.scroll:""}/>
+                <TakeOutNav data={this.props.data.takeoutnav}/> 
+                <TakeOutMid data={this.props.data.takeoutmid}/>
+                <TakeOutList data={this.props.data.takeoutlist} scroll={this.state.scroll>643?this.state.scroll:""}/>
             </div>
         )
     }
@@ -25,7 +26,6 @@ class TakeOutIndex extends React.Component{
         let el=document.getElementById('TakeOutIndex');
         let that=this;
         el.addEventListener('scroll',function(){
-            console.log(this.scrollTop);
             if(this.scrollTop>643){
                 that.setState({
                     scroll:this.scrollTop
