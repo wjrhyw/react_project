@@ -3,11 +3,10 @@ import '../../assets/css/takeout/takeoutlist.css'
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
-        
     }
     render(){
         return (
-            <div id='TakeOutList' >
+            <div id='TakeOutList'>
                 <p className='tuijian'>推荐商家­­­­­­­</p>
                 <ul id='flex_ul' className={this.props.scroll>643?'ul_flex_active':''}>
                     <li className='flex_ul_first_li'>
