@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a477e652-5c8e-4f67-8753-3b942cbb2546" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Find/Business.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Find/FindRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/find/findindex.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/find/findindex.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Find/FindIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Find/FindIndex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Find/SearchIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Find/SearchIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/request.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -22,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Find/FindIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1600">
-              <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+            <state relative-caret-position="475">
+              <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -35,10 +33,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Find/SearchIndex.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Find/Business.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1450">
-              <caret line="73" column="125" selection-start-line="73" selection-start-column="125" selection-end-line="73" selection-end-column="125" />
+            <state relative-caret-position="300">
+              <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Find/FindRouter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -49,34 +59,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+            <state relative-caret-position="-600">
+              <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <element signature="e#1040#1858#0" />
-                <element signature="e#3644#4496#0" />
+                <element signature="e#2740#3630#0" />
+                <element signature="e#3642#4494#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/css/find/findindex.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -86,8 +76,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -107,15 +97,19 @@
         <option value="$PROJECT_DIR$/src/assets/css/find/findindex.css" />
         <option value="$PROJECT_DIR$/src/utils/request.js" />
         <option value="$PROJECT_DIR$/src/components/Find/SearchIndex.js" />
-        <option value="$PROJECT_DIR$/src/components/Find/FindIndex.js" />
         <option value="$PROJECT_DIR$/src/store/action/actionType.js" />
+        <option value="$PROJECT_DIR$/src/components/MeFile/business.js" />
+        <option value="$PROJECT_DIR$/src/components/Find/business.js" />
+        <option value="$PROJECT_DIR$/src/components/Find/Router.js" />
         <option value="$PROJECT_DIR$/src/components/Index.js" />
+        <option value="$PROJECT_DIR$/src/components/Find/FindRouter.js" />
+        <option value="$PROJECT_DIR$/src/components/Find/FindIndex.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="274" />
-    <option name="y" value="287" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="416" />
+    <option name="y" value="54" />
     <option name="width" value="863" />
     <option name="height" value="716" />
   </component>
@@ -156,6 +150,12 @@
               <item name="react_project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="D:\练习\react\组内项目\react_project" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="react_project" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\练习\react\组内项目\react_project" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="router" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -187,6 +187,9 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\练习\react\组内项目\react_project\src\components\Find" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\练习\react\组内项目\react_project\src\assets\img\find" />
       <recent name="D:\练习\react\组内项目\react_project\src\assets" />
@@ -236,17 +239,18 @@
       <workItem from="1568646703026" duration="745000" />
       <workItem from="1568684022142" duration="3219000" />
       <workItem from="1568687342083" duration="17787000" />
-      <workItem from="1568770459701" duration="7288000" />
+      <workItem from="1568770459701" duration="10868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62836000" />
+    <option name="totallyTimeSpent" value="66416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1532738" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1532738" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -260,7 +264,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30983606" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30983606" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -274,7 +278,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Index.js</url>
-          <line>9</line>
+          <line>10</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -319,9 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MeFile/Login.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -329,19 +330,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/TakeOut/TakeIndex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducers/takeout/takeoutreducers.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/router/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
@@ -368,15 +357,11 @@
     <entry file="file://$PROJECT_DIR$/src/store/action/actionCreator.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/store/action/actionType.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/css/find/findindex.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -385,13 +370,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/action/actionType.js">
+    <entry file="file://$PROJECT_DIR$/src/components/MeFile/Login.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Find/SearchIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
+        <state relative-caret-position="775">
           <caret line="73" column="125" selection-start-line="73" selection-start-column="125" selection-end-line="73" selection-end-column="125" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/TakeOut/TakeIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Find/FindIndex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="64" column="42" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -400,20 +417,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        <state relative-caret-position="-600">
+          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#1040#1858#0" />
-            <element signature="e#3644#4496#0" />
+            <element signature="e#2740#3630#0" />
+            <element signature="e#3642#4494#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Find/FindIndex.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Find/Business.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+        <state relative-caret-position="300">
+          <caret line="12" column="21" lean-forward="true" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Find/FindRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {WingBlank,NavBar,Icon,Flex} from 'antd-mobile';
+import {Link} from "react-router-dom"
 import "../../assets/css/find/findindex.css"
 import '../../assets/font-awesome-4.7.0/css/font-awesome.css'
 import gaifan1 from '../../assets/img/find/gaifan1.jpg'
@@ -41,24 +42,26 @@ class FindIndex extends React.Component{
                             this.state.findlist.map((value,index)=>{
                                 return(
                                     <div key={index} className="itemoption">
-                                        <img src={gaifan2} style={{width:"100%",height:"168px"}} alt=""/>
-                                        <WingBlank size="md">
-                                            <div style={{fontSize:'16px'}}>
-                                                {value.name}
-                                            </div>
-                                            <div style={{margin:"5px 0",color:"#909090",fontSize:"12px"}}>
-                                                <span>{value.tips}</span>
-                                            </div>
-                                            <div style={{display:"flex",alignItems:"center"}}>
-                                                <span style={{color:"#FF5510",fontSize:"18px"}}>¥{value.specfoods[0].price}</span>
-                                                <span className="fulldiscount">满22减17</span>
-                                            </div>
-                                            <hr/>
-                                            <div style={{color:"#909090",margin:"7px 0px"}}>
-                                                <i className="fa fa-shopping-cart" aria-hidden="true" ></i>
-                                                <span style={{marginLeft:"10px"}}>香喷喷木桶饭</span>
-                                            </div>
-                                        </WingBlank>
+                                        <Link to="/business" >
+                                            <img src={gaifan2} style={{width:"100%",height:"168px"}} alt=""/>
+                                            <WingBlank size="md">
+                                                <div style={{fontSize:'16px'}}>
+                                                    {value.name}
+                                                </div>
+                                                <div style={{margin:"5px 0",color:"#909090",fontSize:"12px"}}>
+                                                    <span>{value.tips}</span>
+                                                </div>
+                                                <div style={{display:"flex",alignItems:"center"}}>
+                                                    <span style={{color:"#FF5510",fontSize:"18px"}}>¥{value.specfoods[0].price}</span>
+                                                    <span className="fulldiscount">满22减17</span>
+                                                </div>
+                                                <hr/>
+                                                <div style={{color:"#909090",margin:"7px 0px"}}>
+                                                    <i className="fa fa-shopping-cart" aria-hidden="true" ></i>
+                                                    <span style={{marginLeft:"10px"}}>香喷喷木桶饭</span>
+                                                </div>
+                                            </WingBlank>
+                                        </Link>
                                     </div>
                                 )
                             })

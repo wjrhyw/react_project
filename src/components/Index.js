@@ -2,9 +2,10 @@ import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import TakeIndex from '../containers/TakeOut/TakeIndex'
 import DingDancomp from './Orders/DingDancomp';
-import FindIndex from './Find/FindIndex';
+import FindRouter from './Find/FindRouter';
 //import SearchIndex from './Find/SearchIndex';
 import MeFile from './MeFile/MeFile';
+
 class Index extends Component{
   constructor(props){
     super(props);
@@ -78,7 +79,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(FindIndex)}
+            {this.renderContent(FindRouter)}
           </TabBar.Item>
 
           <TabBar.Item
