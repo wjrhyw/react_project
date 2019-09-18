@@ -6,6 +6,7 @@ import FindIndex from './Find/FindIndex';
 import DingDancompItemList from './Orders/DingDancomp';
 import Rou from './MeFile/Router';
 
+//import SearchIndex from './Find/SearchIndex';
 class Index extends Component{
   constructor(props){
     super(props);
