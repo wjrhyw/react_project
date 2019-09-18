@@ -16,20 +16,19 @@ const orderData = {
     ]
 }
 
-class DingDancomp extends React.Component{
-    render(){
+// class DingDancomp extends React.Component{
+//     render(){
         
-        return(
-           <Router>
-               <Switch>
-                    <Route exact path="/OrderInf/:id" component={DingDancompItemInf}/>
-                    <Route exact path="/OrderInf" component={DingDancompItemList}/>
-                    <Redirect exact from='/' to="/OrderInf" />
-               </Switch>
-           </Router>
-        )
-    }
-}
+//         return(
+//            <Router>
+//                <Switch>
+//                     <Route exact path="/OrderInf/:id" component={DingDancompItemInf}/>
+//                     <Route exact path="/OrderInf" component={DingDancompItemList}/>
+//                </Switch>
+//            </Router>
+//         )
+//     }
+// }
 
 class DingDancompItem extends React.Component{
     constructor(props) {
@@ -43,6 +42,7 @@ class DingDancompItem extends React.Component{
                 </div>
                 <div className="CardInsideRight">
                     <div className="CardInsideRighchild1">
+                        <Router>
                         <NavLink activeStyle={{color:'black'}} to={`/OrderInf/${this.props.orders.id}`}>
                             <div className="MainInf">
                                 <div className="MaininfTop">
@@ -56,7 +56,7 @@ class DingDancompItem extends React.Component{
                                 </div>
                             </div>
                         </NavLink>
-                       
+                        </Router>
                         <div className="status">
                             订单已送达
                         </div>
@@ -79,10 +79,14 @@ class DingDancompItemList extends React.Component{
     render(){
         return(
             <>
-            {
-            orderData.ordList.map((item,index)=>
+            <Router>
+               <Switch>
+                    <Route exact path="/OrderInf/:id" component={DingDancompItemInf}/>
+                    <Route render={orderData.ordList.map((item,index)=>
             <DingDancompItem orders={item}  key={uuid()}></DingDancompItem>)
-            }
+            }/>
+               </Switch>
+           </Router>
             </>
         )
     }
@@ -111,4 +115,4 @@ class DingDancompItemInf extends React.Component{
 
 
 
-export default DingDancomp;
+export default DingDancompItemList;
