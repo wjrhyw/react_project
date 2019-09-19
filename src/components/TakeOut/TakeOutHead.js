@@ -5,6 +5,7 @@ class TakeOutHead extends React.Component{
     render(){
         return (
             <div >
+              
                 <NavBar className='head_index'
                     icon={<img className='head_index_img' src={require('../../assets/img/gps.png')}  alt='...'/>}
                     onLeftClick={() => {this.props.gps()}}

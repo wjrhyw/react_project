@@ -1,5 +1,6 @@
 import React from 'react';
-import '../../assets/css/takeout/takeoutlist.css'
+import '../../assets/css/takeout/takeoutlist.css';
+import Loadding from '../loading';
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
@@ -7,6 +8,7 @@ class TakeOutList extends React.Component{
     render(){
         return (
             <div id='TakeOutList'>
+                <Loadding color='red' title='wjrwjr'/>
                 <p className='tuijian'>推荐商家­­­­­­­</p>
                 <ul id='flex_ul' className={this.props.scroll>643?'ul_flex_active':''}>
                     <li className='flex_ul_first_li'>
@@ -59,6 +61,9 @@ class TakeOutList extends React.Component{
                 </ul>
             </div>
         )
+    }
+    componentDidMount(){
+      //Loadding.show();
     }
 }
 export default TakeOutList
