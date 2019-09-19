@@ -107,4 +107,15 @@ align-self: flex-start;
 margin: 20px 0px 20px 10px;
 }
 
+#back_btn{
+align-self: flex-start;
+margin: 20px 0px 0px 10px;
+}
+
+.food_item{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 20px;
+}
+
 /*DingDan-Style*/

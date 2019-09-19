@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/css/orders.css';
+import '../../assets/css/Orders/orders.css';
 import { Button } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
 import {connect} from 'react-redux';
@@ -16,7 +16,7 @@ class DingDancompItem extends React.Component{
                 </div>
                 <div className="CardInsideRight">
                     <div className="CardInsideRighchild1">
-                        <NavLink activeStyle={{color:'black'}} to={`/OrderInf/${this.props.orders.id}`}>
+                        <NavLink activeStyle={{color:'black'}} to={`/${this.props.orders.id}`}>
                             <div className="MainInf">
                                 <div className="MaininfTop">
                                     <div className="ShopName">
@@ -55,7 +55,6 @@ class DingDancompItemLists extends React.Component{
 
     render(){
         const {ordList} = this.props;
-        console.log(ordList);
         return(
             <>
             {
