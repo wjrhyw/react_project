@@ -25,18 +25,24 @@ class DingDancompItemInf extends React.Component{
         return (<div id = 'ItemInfDad'>
                     <div id="back_btn" onClick={()=> window.history.back(-1)}><Icon type="left" /></div>
                     <div className="title_status"><h2>{ordInfo.status}</h2></div>
-                    <div>编号: {ordInfo.id}</div>
-                    <p>店铺名称: {ordInfo.shopname}</p>
-                    <div>菜单: {ordInfo.foods.map((item,key)=>(
-                        <div className="food_item" key={uuid()}>
-                            <span><img width="20px" height="20px" src={`../../assets/img/foods/${item.foodname}.jpg`}/></span>
-                            <span key = {key}>{item.foodname}</span>
-                            <span >{item.foodprice}</span>
-                        </div>)
-                        )
-                        }
+                    <div className="Inf_card">
+                        <div className="flexleft">店铺名称: {ordInfo.shopname}</div>
+                        <div style={{textAlign:"left"}}>菜单: {ordInfo.foods.map((item,key)=>(
+                            <div className="food_item" key={uuid()}>
+                                <span className="span_font_mid"><img className="img_border" src={require(`../../assets/img/foods/${item.foodname}.jpg`)}/></span>
+                                <span className="float_foodname span_font_mid" key = {key}>{item.foodname}</span>
+                                <span className="span_font_mid">￥{item.foodprice}</span>
+                            </div>)
+                            )
+                            }
+                        </div>
+                        
                     </div>
-                    <p>电话: {ordInfo.tel}</p>
+
+                    <div className="Inf_card">
+                        <div className="flexleft">编号: {ordInfo.id}</div>
+                        <div className="flexleft">电话: {ordInfo.tel}</div>
+                    </div>
                 </div>)
     }
 }

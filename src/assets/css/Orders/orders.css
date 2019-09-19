@@ -100,6 +100,9 @@ a{
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
+height: 100%;
+width: 100%;
+background-color: rgb(233, 230, 230);
 }
 
 .title_status{
@@ -115,7 +118,41 @@ margin: 20px 0px 0px 10px;
 .food_item{
     display: flex;
     justify-content: space-between;
-    margin: 5px 20px;
+    /* margin: px 20px; */
+    padding: 5px 0px;
+}
+
+.img_border{
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    border: 0.6px solid rgba(112, 112, 112, 0.301);
+    box-sizing: border-box;
+}
+
+.Inf_card{
+    padding: 10px 10px;
+    margin: 10px 15px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.flexleft{
+    align-self: flex-start;
+    text-align: left;
+    padding: 5px 0px;
+}
+
+.float_foodname{
+    margin-right:auto;
+    margin-left: 10px;
+}
+
+.span_font_mid{
+    line-height:40px;
+    height: 40px;
 }
 
 /*DingDan-Style*/

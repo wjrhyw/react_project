@@ -10,6 +10,12 @@ class DingDancompItem extends React.Component{
         super(props);
     }
     render(){
+        let fod_price= 0;
+        let fod_price_fix = 0;
+        this.props.orders.foods.forEach(element => {
+            fod_price = fod_price + element.foodprice;
+            fod_price_fix = fod_price.toFixed(1);
+        });
         return(
             <div className="CardOutSet">
                 <div className="CardShopIcon">
@@ -36,7 +42,7 @@ class DingDancompItem extends React.Component{
                     </div>
                     <div className="CardInsideRighchild2">
                         <div className ="orderItem">asdad</div>
-                        <div className ="orderPrice">19.6</div>
+                        <div className ="orderPrice">￥{fod_price_fix}</div>
                     </div>
                     <div className="CardInsideRighchild3">
                             <Button className="Carildbtn" size="small">再来一单</Button>
