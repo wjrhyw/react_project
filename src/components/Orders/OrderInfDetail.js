@@ -2,7 +2,6 @@ import React from 'react';
 import '../../assets/css/orders.css';
 import { Button } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
-import uuid from 'uuid';
 import {connect} from 'react-redux';
 
 class DingDancompItemInf extends React.Component{
