@@ -4,7 +4,6 @@ import App from './App';
 import 'antd-mobile/dist/antd-mobile.css';
 import './assets/css/index.css';
 import 'antd/dist/antd.css';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux'
 import indexReducers from './store/reducers/index'
 import {createStore, applyMiddleware, compose} from 'redux'
