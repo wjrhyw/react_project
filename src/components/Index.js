@@ -3,7 +3,7 @@ import { TabBar } from 'antd-mobile';
 import TakeIndex from '../containers/TakeOut/TakeIndex'
 import DingDancomp from './Orders/DingDancomp';
 import FindRouter from './Find/FindRouter';
-//import SearchIndex from './Find/SearchIndex';
+//import Search from './Find/Search';
 import DingDancompItemList from './Orders/DingDancomp';
 import Rou from './MeFile/Router';
 

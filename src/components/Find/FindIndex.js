@@ -6,15 +6,29 @@ import '../../assets/font-awesome-4.7.0/css/font-awesome.css'
 import gaifan1 from '../../assets/img/find/gaifan1.jpg'
 import gaifan2 from '../../assets/img/find/gaifan2.jpg'
 import request from "../../utils/request"
+import Loading from "./Loading"
 
 class FindIndex extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            findlist:[]
+            findlist:[],
+            show:true
         }
     }
+    componentWillMount(){
+        this.setState({
+            show:true
+        })
+    }
     componentDidMount() {
+        //两秒后取消loading
+        setTimeout(() => {
+            this.setState({
+                show:false
+            })
+        }, 500);
+
         var req=request("get","/shopping/v2/menu",{restaurant_id:2});
         req.then(
              (res)=> {
@@ -26,11 +40,20 @@ class FindIndex extends React.Component{
             }
         )
     }
-
+    htmls(){
+        if(this.state.show){
+            return (
+                <Loading flag={this.state.show}></Loading>
+            )
+        }else{
+            return null
+        }
+    }
     render(){
 
         return (
             <div style={{background:"white"}}>
+                {this.htmls()}
                 <NavBar mode="dark" icon={<Icon type="left"/>} onLeftClick={() => console.log('onLeftClick')}>发现</NavBar>
                 <div style={{marginTop:"30px",fontSize:"18px"}}>
                     <i className="fa fa-thumbs-o-up" style={{color:"#DA305F"}} aria-hidden="true"></i>为你推荐

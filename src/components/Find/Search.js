@@ -3,7 +3,7 @@ import {WingBlank,NavBar,Icon,Flex} from 'antd-mobile';
 import "../../assets/css/find/searchindex.css"
 import request from "../../utils/request";
 
-class SearchIndex extends React.Component{
+class Search extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -80,10 +80,8 @@ class SearchIndex extends React.Component{
                         </Flex>
                     </div>
                 </WingBlank>
-
-
             </div>
         )
     }
 }
-export default SearchIndex;
+export default Search;
