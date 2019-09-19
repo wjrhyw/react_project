@@ -3,17 +3,19 @@ import TakeOutHead  from './TakeOutHead';
 import TakeOutNav from './TakeOutNav';
 import TakeOutList from './TakeOutList';
 import TakeOutMid from './TakeOutMid';
+import Loadding from '../loading';
 class TakeOutIndex extends React.Component{
     constructor(props){
         super(props);
         this.state={
             scroll:'',
         };
+        this.props.gps();
     }
     render(){
         return (
             <div id='TakeOutIndex' style={{maxHeight: '100%',overflowY:'auto'}}>
-                <p></p>
+                <Loadding />
                 <TakeOutHead scroll={this.state.scroll} data={this.props.data.takeouthead} gps={this.props.gps}/>
                 <div style={{height:'45px'}}></div>
                 <TakeOutNav data={this.props.data.takeoutnav}/> 
@@ -37,6 +39,7 @@ class TakeOutIndex extends React.Component{
                 })
             }
         })
+      
     }
 }
 export default TakeOutIndex;
