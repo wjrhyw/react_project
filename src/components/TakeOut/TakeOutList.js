@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../assets/css/takeout/takeoutlist.css';
 import Loadding from '../loading';
+import ShopList from './shoplist';
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
@@ -59,6 +60,7 @@ class TakeOutList extends React.Component{
                         })
                     }
                 </ul>
+                <ShopList/>
             </div>
         )
     }
