@@ -41,7 +41,9 @@ class DingDancompItem extends React.Component{
                         </div>
                     </div>
                     <div className="CardInsideRighchild2">
-                        <div className ="orderItem">asdad</div>
+                        <div className ="orderItem">{this.props.orders.foods.map((item,key)=>(
+                                <span key={uuid()}>{item.foodname},</span>))}
+                        </div>
                         <div className ="orderPrice">￥{fod_price_fix}</div>
                     </div>
                     <div className="CardInsideRighchild3">
