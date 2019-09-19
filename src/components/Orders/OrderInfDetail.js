@@ -29,6 +29,7 @@ class DingDancompItemInf extends React.Component{
                     <p>店铺名称: {ordInfo.shopname}</p>
                     <div>菜单: {ordInfo.foods.map((item,key)=>(
                         <div className="food_item" key={uuid()}>
+                            <span><img width="20px" height="20px" src={`../../assets/img/foods/${item.foodname}.jpg`}/></span>
                             <span key = {key}>{item.foodname}</span>
                             <span >{item.foodprice}</span>
                         </div>)
