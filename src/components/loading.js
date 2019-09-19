@@ -25,9 +25,10 @@ class Loading extends React.Component{
         )
     }
     //暴露接口来控制loading组件的隐藏或者显示
-    static show(){
+    static show(title){
         this.setState({
-            visible:true
+            visible:true,
+           title:title?title:'正在加载'
         });
     }
     static hide(){
