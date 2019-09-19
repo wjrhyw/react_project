@@ -22,7 +22,7 @@ const mapDispatchToProps=function(dispatch){
             console.log('错误');
         })},
         //其余事件
-   
+        
     }
 }
 const TakeIndex=connect(mapStateToProps,mapDispatchToProps)(TakeOutIndex)
