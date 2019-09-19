@@ -1,12 +1,13 @@
 import TakeOutIndex from '../../components/TakeOut/TakeOutIndex';
 import { connect } from 'react-redux';
 import $ from 'jquery'
-
 //封装获取地理位置
+console.log(navigator.geolocation.getCurrentPosition);
 function gps(){
     return new Promise((resolve,reject)=>{
         navigator.geolocation.getCurrentPosition((position)=>{
             var location=(position.coords.latitude)+','+(position.coords.longitude);
+            console.log('经纬度是',location);
             var url=`https://apis.map.qq.com/ws/geocoder/v1/?`;
             var data={
                 location,
@@ -27,7 +28,13 @@ function gps(){
                     reject(err);
                 }
             })
-    })
+    },(err)=>{
+        console.log('获取经纬度失败');
+    },{
+        enableHighAccuracy:true,
+        timeout:5000,
+        maximumAge:0
+   })
     })
 }
 
