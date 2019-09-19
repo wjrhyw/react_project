@@ -1,0 +1,1 @@
+export const GET_ALL_ITEM = 'get_all_item'; // 获取所有记录

@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux'
-import takeoutindex from './takeout/takeoutreducers'
+import takeoutindex from './takeout/takeoutreducers';
+import orderindex from './Order/orderreducers';
+
 const index_reducers=combineReducers({
-    takeoutindex
+    takeoutindex,
+    orderindex
 })
 export default index_reducers
