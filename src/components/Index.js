@@ -4,7 +4,6 @@ import TakeIndex from '../containers/TakeOut/TakeIndex'
 import DingDancomp from './Orders/DingDancomp';
 import FindRouter from './Find/FindRouter';
 //import SearchIndex from './Find/SearchIndex';
-import DingDancompItemList from './Orders/DingDancomp';
 import Rou from './MeFile/Router';
 
 class Index extends Component{
@@ -107,7 +106,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(DingDancompItemList)}
+            {this.renderContent(DingDancomp)}
           </TabBar.Item>
 
 

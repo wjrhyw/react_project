@@ -35,7 +35,7 @@ class TakeOutList extends React.Component{
                                         <p style={{color:'#353535',fontSize:'14px',fontWeight:'600',marginBottom:'10px'}}>{val.title}</p>
                                         <div style={{color:'#5E5E5E',fontSize:'10px',marginBottom:'10px'}}>
                                             <span>星星</span>
-                                            <sapn style={{margin:'0 10px'}}>5.0</sapn>
+                                            <span style={{margin:'0 10px'}}>5.0</span>
                                             <span>月售1990单</span>
                                         </div>
                                         <div style={{marginBottom:'10px',color:'#5E5E5E',fontSize:'10px'}}>
