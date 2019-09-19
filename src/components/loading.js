@@ -1,5 +1,6 @@
 import React from 'react';
-import { Icon } from 'antd';
+import { Icon } from 'antd-mobile';
+import 'antd/es/icon/style/index.js'
 class Loading extends React.Component{
     constructor(props){
         super(props);
@@ -18,7 +19,7 @@ class Loading extends React.Component{
     render(){
         return (
             <div  style={{borderRadius:'10px',width:this.state.width,height:this.state.height,margin:'0 auto',display:this.state.visible?'block':'none',position:'fixed',top:`${parseInt(this.state.top)-parseInt(this.state.height)/2}px`,right:' 0',bottom:'0',left:'0',zIndex:'10000000',outline:'0',backgroundColor:'rgba(0, 0, 0, 0.65)'}}>
-                <Icon type='loading' style={{color:this.state.color,fontSize:this.state.fontSize,lineHeight:this.state.height,height:this.state.fontSize}}/>
+                <Icon type='loading' size='lg' style={{color:this.state.color,marginTop:`${parseInt(this.state.height)/2-40}px`,height:this.state.fontSize}}/>
                 <p style={{color:'#fff',marginTop:'10px'}}>{this.state.title}</p>
             </div>
         )

@@ -63,7 +63,7 @@ class TakeOutList extends React.Component{
         )
     }
     componentDidMount(){
-       // Loadding.show();
+      Loadding.show();
     }
 }
 export default TakeOutList
