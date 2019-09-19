@@ -1,0 +1,51 @@
+#shop{
+    position: fixed;
+    top:0px;
+    width: 100%;
+    background: rgba(16,142,233,1);
+}
+#header{
+    margin-top: 45px;
+    width: 100%;
+    height: 150px;
+    background: url("../../img/find/bg.jpg") center center;
+    text-align: left;
+}
+#header .header_shop{
+    padding-top: 5%;
+    width:100%;
+    display: flex;
+    justify-content: left;
+}
+
+#header .header_shop .header_shop_msg{
+    width: 67%;
+    font-size: 15px;
+    color:white;
+    margin-left:5px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+#header .header_shop .header_shop_arrow{
+    color: white;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+#header .header_reduce{
+    font-size: 15px;
+    color: white;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#container{
+
+}
+#container .commodity{
+    height: 150px ;
+    background-color: red
+}
