@@ -46,20 +46,20 @@ class FindIndex1 extends React.Component{
             }
         )
     }
-    htmls(){
-        if(this.state.show){
-            return (
-                <Loading flag={this.state.show}></Loading>
-            )
-        }else{
-            return null
-        }
-    }
+    // htmls(){
+    //     if(this.state.show){
+    //         return (
+    //             // <Loading flag={this.state.show}></Loading>
+    //         )
+    //     }else{
+    //         return null
+    //     }
+    // }
     render(){
 
         return (
             <div style={{background:"white"}}>
-                {this.htmls()}
+                {/* {this.htmls()} */}
                 <NavBar mode="dark" icon={<Icon type="left"/>} onLeftClick={() => console.log("111")}>发现</NavBar>
                 <div style={{marginTop:"30px",fontSize:"18px"}}>
                     <i className="fa fa-thumbs-o-up" style={{color:"#DA305F"}} aria-hidden="true"></i>为你推荐
