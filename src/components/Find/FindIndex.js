@@ -11,7 +11,7 @@ import {connect} from "react-redux";
 import findindex from "../../store/reducers/Find/findreducers";
 import store from "../../index";
 import {GET_ALL_FIND} from "../../store/action/actionType";
-//import Loading1 from "../../components/loading"
+import Loading1 from "../../components/loading"
 
 class FindIndex1 extends React.Component{
     constructor(props){
@@ -28,7 +28,7 @@ class FindIndex1 extends React.Component{
         })
     }
     componentDidMount() {
-        //Loading1.show();
+        Loading1.show();
         var req=request("get","/shopping/v2/menu",{restaurant_id:2});
         req.then(
             (res)=> {
@@ -42,7 +42,7 @@ class FindIndex1 extends React.Component{
                         show:false
                     })
                 }, 500);
-                 //Loading1.hide();
+                 Loading1.hide();
             }
         )
     }
