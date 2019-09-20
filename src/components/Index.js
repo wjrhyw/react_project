@@ -1,10 +1,8 @@
 import React,{Component} from 'react';
 import { TabBar } from 'antd-mobile';
-//import TakeIndex from '../containers/TakeOut/TakeIndex'
-import TakeoutIndexRouter from './TakeOut/takeoutindexrouter'
+import TakeRouter from './TakeOut/takeoutindexrouter'
 import DingDancomp from './Orders/DingDancomp';
 import FindRouter from './Find/FindRouter';
-//import SearchIndex from './Find/SearchIndex';
 import Rou from './MeFile/Router';
 
 class Index extends Component{
@@ -70,7 +68,7 @@ class Index extends Component{
               });
             }}
           >
-            {this.renderContent(TakeoutIndexRouter)}
+            {this.renderContent(TakeRouter)}
           </TabBar.Item>
         <TabBar.Item
             icon={

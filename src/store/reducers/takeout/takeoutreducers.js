@@ -4,7 +4,7 @@ let data={
         title:'你还没有定位呀~',
     },
     takeoutnav:{
-                    imgurl:['http://p1.music.126.net/Pj5btpNr_LNYRnzkY2Oklw==/109951164340630437.jpg','http://p1.music.126.net/KxpKJc1IQmuYRQaoFCvi_g==/109951164340632770.jpg','http://p1.music.126.net/q5tGuVS--IY8sQCrItsDZQ==/109951164341168942.jpg'],
+            imgurl:['http://p1.music.126.net/Pj5btpNr_LNYRnzkY2Oklw==/109951164340630437.jpg','http://p1.music.126.net/KxpKJc1IQmuYRQaoFCvi_g==/109951164340632770.jpg','http://p1.music.126.net/q5tGuVS--IY8sQCrItsDZQ==/109951164341168942.jpg'],
             list:[
                 [
                     {title:'美食',url:require('../../../assets/img/1.png')},
@@ -30,7 +30,9 @@ let data={
                     {title:'炸鸡',url:'http://p2.music.126.net/qmbFWiN49TtarBvTYQx0tw==/109951164318387094.jpg?param=140y140'},
                     {title:'炸鸡',url:'http://p2.music.126.net/l_g4Wed5Rt_aMB5hwlaGrw==/109951164337806999.jpg?param=140y140'}
                 ]
-        ]
+        ],
+        //shoplist
+        shoplist:[]
     },
     takeoutmid:{
         imgurl:['http://p1.music.126.net/Pj5btpNr_LNYRnzkY2Oklw==/109951164340630437.jpg','http://p1.music.126.net/KxpKJc1IQmuYRQaoFCvi_g==/109951164340632770.jpg','http://p1.music.126.net/q5tGuVS--IY8sQCrItsDZQ==/109951164341168942.jpg'],
