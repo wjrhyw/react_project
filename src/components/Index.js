@@ -13,11 +13,26 @@ class Index extends Component{
     this.state = {
       selectedTab: 'takeoutTab',
       prerenderingSiblingsNumber:0,
+      hidden:false
     };
+    Index.show=Index.show.bind(this);
+    Index.hide=Index.hide.bind(this);
+  }
+  //显示方法
+  static show(){
+    this.setState({
+      hidden:false
+    })
+  }
+  //影藏方法
+  static hide(){
+    this.setState({
+      hidden:true
+    })
   }
   renderContent(Component) {
     return (
-      <div id='app' style={{ backgroundColor: 'white', height: '100%', textAlign: 'center',width:'100%' }}>
+      <div id='app' style={{ backgroundColor: 'white', height: '100%', textAlign: 'center',width:'100%',zIndex:1000 }}>
           <Component/>
       </div>
     );
@@ -27,6 +42,7 @@ class Index extends Component{
       <div style={{textAlign:'center'}}>
         <div  style={{ position: 'fixed', height:'100%', width: '100%', top: 0 ,}}>
         <TabBar
+          hidden={this.state.hidden}
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
           barTintColor="white"
