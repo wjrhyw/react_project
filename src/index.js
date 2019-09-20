@@ -20,9 +20,9 @@ const store = createStore(indexReducers, enhancer);
 
 console.log('========',store.getState());
 ReactDOM.render(
-            <Provider store={store}>
-            <App /> 
-            </Provider>,
-            document.getElementById('root'));
+    <Provider store={store}>
+        <App />
+    </Provider>,
+document.getElementById('root'));
 
 export default store;
