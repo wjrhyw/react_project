@@ -7,14 +7,20 @@ import gaifan1 from '../../assets/img/find/gaifan1.jpg'
 import gaifan2 from '../../assets/img/find/gaifan2.jpg'
 import request from "../../utils/request"
 import Loading from "./Loading"
+import {connect} from "react-redux";
+import findindex from "../../store/reducers/Find/findreducers";
+import store from "../../index";
+import {GET_ALL_FIND} from "../../store/action/actionType";
+//import Loading1 from "../../components/loading"
 
-class FindIndex extends React.Component{
+class FindIndex1 extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            findlist:[],
-            show:true
+            show:true,
+            list:[1,2,3]
         }
+        console.log('props是',this.props.list);
     }
     componentWillMount(){
         this.setState({
@@ -22,21 +28,21 @@ class FindIndex extends React.Component{
         })
     }
     componentDidMount() {
-        //两秒后取消loading
-        setTimeout(() => {
-            this.setState({
-                show:false
-            })
-        }, 500);
-
+        //Loading1.show();
         var req=request("get","/shopping/v2/menu",{restaurant_id:2});
         req.then(
-             (res)=> {
-                this.setState({
-                     findlist:res[0].foods
-                },()=>{
-                    console.log(this.state.findlist)
+            (res)=> {
+                store.dispatch({
+                    type:GET_ALL_FIND,
+                    list:res[0].foods
                 })
+                //两秒后取消loading
+                setTimeout(() => {
+                    this.setState({
+                        show:false
+                    })
+                }, 500);
+                 //Loading1.hide();
             }
         )
     }
@@ -54,15 +60,16 @@ class FindIndex extends React.Component{
         return (
             <div style={{background:"white"}}>
                 {this.htmls()}
-                <NavBar mode="dark" icon={<Icon type="left"/>} onLeftClick={() => console.log('onLeftClick')}>发现</NavBar>
+                <NavBar mode="dark" icon={<Icon type="left"/>} onLeftClick={() => console.log("111")}>发现</NavBar>
                 <div style={{marginTop:"30px",fontSize:"18px"}}>
                     <i className="fa fa-thumbs-o-up" style={{color:"#DA305F"}} aria-hidden="true"></i>为你推荐
                 </div>
+                {/*<Loading1></Loading1>*/}
                 <p style={{color:'#909090',fontSize:"12px",marginBottom:"20px"}}>你的口味,我都懂得</p>
                 <WingBlank>
                     <div id="container">
                         {
-                            this.state.findlist.map((value,index)=>{
+                            this.props.list.map((value,index)=>{
                                 return(
                                     <div key={index} className="itemoption">
                                         <Link to="/business" >
@@ -95,4 +102,14 @@ class FindIndex extends React.Component{
         )
     }
 }
+
+
+const mapStateToProps = (state)=> {
+    console.log(state.findindex.list);
+    return {
+        list: state.findindex.list
+    }
+};
+
+let FindIndex = connect(mapStateToProps)(FindIndex1);
 export default FindIndex;

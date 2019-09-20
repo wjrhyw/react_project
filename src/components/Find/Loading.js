@@ -8,7 +8,7 @@ class Loading extends Component{
                 position:'fixed',
                 height:'100%'
             }
-        }
+        };
         return (
             <div>
                 <div className={'main'} style={styles.main}>
