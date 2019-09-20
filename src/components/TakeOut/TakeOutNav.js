@@ -1,6 +1,8 @@
 import React from 'react';
 import { Carousel } from 'antd-mobile';
-import '../../assets/css/takeout/takeoutnav.css'
+import '../../assets/css/takeout/takeoutnav.css';
+import {Link} from 'react-router-dom';
+import uuid from 'uuid';
 class TakeOutNav extends React.Component{
     render(){
        return (
@@ -31,12 +33,14 @@ class TakeOutNav extends React.Component{
                                     val.map((item,index)=>{
                                         return (
                                             <li className='nav_ul_li' key={index}>
+                                                 <Link to={{pathname:`/ShopList/:${uuid()}`}}>
                                                 <img className='nav_ul_li_img' src={item.url} alt='...'/>
                                                 <p className='nav_ul_li_p'>
                                                     {
                                                         item.title
                                                     }
                                                 </p>
+                                                </Link>
                                             </li>
                                         )
                                     })

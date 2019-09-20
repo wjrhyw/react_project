@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/css/Orders/orders.css';
-import { Button } from 'antd-mobile';
+import {Button,NavBar, Icon } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
 import {connect} from 'react-redux';
 import uuid from 'uuid';
@@ -19,6 +19,7 @@ class DingDancompItem extends React.Component{
         return(
             <div className="CardOutSet">
                 <div className="CardShopIcon">
+                    <img src={require(`../../assets/img/shop/${this.props.orders.shopname}.jpg`)}/>
                 </div>
                 <div className="CardInsideRight">
                     <div className="CardInsideRighchild1">
@@ -41,7 +42,9 @@ class DingDancompItem extends React.Component{
                         </div>
                     </div>
                     <div className="CardInsideRighchild2">
-                        <div className ="orderItem">asdad</div>
+                        <div className ="orderItem">{this.props.orders.foods.map((item,key)=>(
+                                <span key={uuid()}>{item.foodname},</span>))}
+                        </div>
                         <div className ="orderPrice">￥{fod_price_fix}</div>
                     </div>
                     <div className="CardInsideRighchild3">
@@ -63,6 +66,11 @@ class DingDancompItemLists extends React.Component{
         const {ordList} = this.props;
         return(
             <>
+            <NavBar
+            mode="dark"
+            icon={<Icon type="left" />}
+            onLeftClick={() => console.log('onLeftClick')}
+            >订单</NavBar>
             {
             ordList.map((item,index)=>
             <DingDancompItem orders={item}  key={uuid()}></DingDancompItem>)

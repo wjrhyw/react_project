@@ -60,7 +60,6 @@ class TakeOutList extends React.Component{
                         })
                     }
                 </ul>
-                <ShopList/>
             </div>
         )
     }

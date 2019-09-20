@@ -8,12 +8,12 @@
     justify-content:center;
 }
 
-.CardShopIcon{
+.CardShopIcon img{
     height: 45px;
     width: 45px;
-    background: #239e9e;
+    /* background: #239e9e; */
     margin-right: 10px;
-    border-radius: 2%;
+    border-radius: 5%;
 }
 
 .CardInsideRight{
@@ -153,6 +153,14 @@ margin: 20px 0px 0px 10px;
 .span_font_mid{
     line-height:40px;
     height: 40px;
+}
+
+.orderItem{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 130px;
+    height: 16px;
+    overflow: hidden;
 }
 
 /*DingDan-Style*/
