@@ -1,6 +1,11 @@
 import request from '../../utils/request';
 import React from 'react';
+import Index from '../Index';
 class ShopList extends React.Component{
+    constructor(){
+        super();
+        Index.hide();
+    }
     render(){
         return (
             <div>
