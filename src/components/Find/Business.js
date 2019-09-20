@@ -1,20 +1,22 @@
 import React from 'react';
-import {WingBlank,NavBar,Icon,Tabs, Badge,WhiteSpace } from 'antd-mobile';
+import {WingBlank,NavBar,Icon,Tabs, Badge,WhiteSpace, List, Stepper } from 'antd-mobile';
 import '../../assets/font-awesome-4.7.0/css/font-awesome.css';
 import '../../assets/css/find/business.css';
 import shopicon from '../../assets/img/find/shopicon.jpg'
 import reduce from '../../assets/img/find/reduce.png'
 import hanbb from '../../assets/img/find/hanbb.jpg'
-
+import Index from "../Index"
 class FindIndex extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            findlist:[]
+            findlist:[],
+            val: 3,
+            val1: 2,
         }
     }
-
     render(){
+        
         const tabs1 = [
             { title: <Badge>商品</Badge> },
             { title: <Badge>评价</Badge> },
@@ -88,6 +90,23 @@ class FindIndex extends React.Component{
                                                     <p>月售206份 好评率100%</p>
                                                     <div>
                                                         <span>¥9</span>
+                                                        <div>
+                                                            <List>
+                                                                <List.Item
+                                                                    wrap
+                                                                    extra={
+                                                                        <Stepper
+                                                                            style={{ width: '100%', minWidth: '100px' }}
+                                                                            showNumber
+                                                                            max={10}
+                                                                            min={1}
+                                                                            value={this.state.val}
+                                                                            onChange={this.onChange}
+                                                                        />}
+                                                                >
+                                                                </List.Item>
+                                                            </List>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
