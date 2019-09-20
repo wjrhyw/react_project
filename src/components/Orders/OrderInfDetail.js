@@ -23,7 +23,7 @@ class DingDancompItemInf extends React.Component{
             return null;
         }
         return (<div id = 'ItemInfDad'>
-                    <div id="back_btn" onClick={()=> window.history.back(-1)}><Icon type="left" /></div>
+                    <div id="back_btn" onClick={()=> window.history.back(-2)}><Icon type="left" /></div>
                     <div className="title_status"><h2>{ordInfo.status}</h2></div>
                     <div className="Inf_card">
                         <div className="flexleft">店铺名称: {ordInfo.shopname}</div>
