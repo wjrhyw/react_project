@@ -8,7 +8,7 @@ class TakeoutIndexRouter extends React.Component{
             <Router>
                 <Switch>
                     <Route exact path='/' component={TakeIndex} />
-                    <Route exact  path='/:id' component={ShopList} />
+                    <Route exact  path='/ShopList/:id' component={ShopList} />
                 </Switch>
             </Router>
         )

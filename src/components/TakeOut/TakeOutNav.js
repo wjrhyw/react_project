@@ -32,7 +32,7 @@ class TakeOutNav extends React.Component{
                                 {
                                     val.map((item,index)=>{
                                         return (
-                                            <Link to={{pathname:`/:${uuid()}`}}>
+                                            <Link to={{pathname:`/ShopList/:${uuid()}`}}>
                                             <li className='nav_ul_li' key={index}>
                                                 <img className='nav_ul_li_img' src={item.url} alt='...'/>
                                                 <p className='nav_ul_li_p'>
