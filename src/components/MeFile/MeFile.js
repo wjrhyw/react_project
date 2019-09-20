@@ -13,7 +13,7 @@ class MeFile extends Component {
         mobile:"暂无绑定手机"
     }
     render(){
-        const item = ['lg'];
+        const item = ['md'];
         return(
             <div className="body">
                 <Flex>
@@ -48,7 +48,7 @@ class MeFile extends Component {
                 <Flex>
                     <Flex.Item className="flex-size" flex="2">
                         <span className="data-top">
-                             <b style={{color:"#f90",fontSize:"27px"}}>0</b>元
+                             <b style={{color:"#f90",fontSize:"27px"}}>0.00</b>元
                         </span>
                          <div className="data-bottom">我的余额</div>
                     </Flex.Item>
@@ -79,21 +79,21 @@ class MeFile extends Component {
                         <NavLink to="/MeFile/Mall">
                            <li className="other-one">
                                 <i className="fa fa-navicon" style={{marginRight:"10px",color:"#ff99cc"}}></i>
-                                积分商城
+                                我的地址
                                 <i className="fa fa-angle-right"></i>
                             </li>
                         </NavLink>
                         <NavLink to="/MeFile/MemberCard">
                            <li className="other-one">
                                 <i className="fa fa-diamond" style={{marginRight:"10px",color:"#ffff66"}}></i>
-                                饿了么会员卡
+                                我的收藏
                                 <i className="fa fa-angle-right"></i>
                             </li>
                         </NavLink>
                         <NavLink to="/MeFile/ServiceCentre">
                            <li className="other-one">
                                 <i className="fa fa-square" style={{marginRight:"10px",color:"#6666ff"}}></i>
-                                服务中心
+                                我的客服
                                 <i className="fa fa-angle-right"></i>
                             </li>
                         </NavLink>
