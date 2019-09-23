@@ -146,6 +146,11 @@ margin: 20px 0px 0px 10px;
     padding: 5px 0px;
 }
 
+.cardChild_right{
+    font-size: 12px;
+    font-weight: 100;
+}
+
 .flexleft{
     align-self: flex-start;
     text-align: left;
@@ -160,6 +165,16 @@ margin: 20px 0px 0px 10px;
 .span_font_mid{
     line-height:40px;
     height: 40px;
+}
+
+.minicard{
+    font-size: 3px;
+    height: 15px;
+    width: 42px;
+    border-radius: 1px;
+    line-height: 15px;
+    align-self: center;
+    padding: 0 3px;
 }
 
 .orderItem{

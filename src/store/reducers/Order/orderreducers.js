@@ -1,15 +1,23 @@
 import {GET_ALL_ITEM} from '../../action/actionType';
 import uuid from 'uuid';
 
+function uuidFix(){
+    let idfix = uuid();
+    let reg = new RegExp("-","g");
+    let a = idfix.replace(reg,"");
+    let idfixed = a.substr(0,25);
+    return idfixed;
+}
+
 const orderData = {
     ordList:[
-        {id:uuid(),delivery:"蜂鸟专送",payment:'在线支付', shopname:'啃得起', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'豆腐',foodprice:23.3},{foodname:'阔落',foodprice:3.3}], tel:'15678904397',status:'订单已送达'},
-        {id:uuid(),delivery:"普通配送",payment:'现金支付', shopname:'kfc', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'1567454397',status:'订单已送达'},
-        {id:uuid(),delivery:"蜂鸟专送",payment:'在线支付', shopname:'餐厅', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'13478904397',status:'订单已送达'},
-        {id:uuid(),delivery:"普通配送",payment:'现金支付', shopname:'dd烤肉饭', foods:[{foodname:'tea1',foodprice:9},{foodname:'牛排',foodprice:29.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'18678904397',status:'订单已送达'},
-        {id:uuid(),delivery:"普通配送",payment:'在线支付', shopname:'拉面店', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'18778904397',status:'订单已送达'},
-        {id:uuid(),delivery:"普通配送",payment:'现金支付', shopname:'奶茶店', foods:[{foodname:'tea1',foodprice:9},{foodname:'牛排',foodprice:29.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'456543343',status:'订单已送达'},
-        {id:uuid(),delivery:"蜂鸟专送",payment:'现金支付', shopname:'带韩拌饭', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'12313213132',status:'订单已送达'}
+        {id:uuidFix(),delivery:{deliver_way:"蜂鸟专送",deliver_price:10},payment:'在线支付', shopname:'啃得起', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'豆腐',foodprice:23.3},{foodname:'阔落',foodprice:3.3}], tel:'15678904397',discount:{hongbao_dis:{discount_way:"红包",discount_val:10},manjian_dis:{discount_way:"店铺满减",discount_val:20}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"蜂鸟专送",deliver_price:10},payment:'现金支付', shopname:'kfc', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'1567454397',discount:{hongbao_dis:{discount_way:"红包",discount_val:10},manjian_dis:{}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"普通配送",deliver_price:5},payment:'在线支付', shopname:'餐厅', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'13478904397',discount:{hongbao_dis:{discount_way:"红包",discount_val:10},manjian_dis:{discount_way:"店铺满减",discount_val:20}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"蜂鸟专送",deliver_price:10},payment:'现金支付', shopname:'dd烤肉饭', foods:[{foodname:'tea1',foodprice:9},{foodname:'牛排',foodprice:29.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'18678904397',discount:{hongbao_dis:{},manjian_dis:{discount_way:"店铺满减",discount_val:20}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"普通配送",deliver_price:0},payment:'在线支付', shopname:'拉面店', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'18778904397',discount:{hongbao_dis:{},manjian_dis:{}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"普通配送",deliver_price:5},payment:'现金支付', shopname:'奶茶店', foods:[{foodname:'tea1',foodprice:9},{foodname:'牛排',foodprice:29.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'456543343',discount:{hongbao_dis:{discount_way:"红包",discount_val:10},manjian_dis:{discount_way:"店铺满减",discount_val:20}},status:'订单已送达'},
+        {id:uuidFix(),delivery:{deliver_way:"蜂鸟专送",deliver_price:10},payment:'现金支付', shopname:'带韩拌饭', foods:[{foodname:'tea1',foodprice:9},{foodname:'沙拉',foodprice:23.3},{foodname:'奶茶',foodprice:13.3},{foodname:'阔落',foodprice:3.3}], tel:'12313213132',discount:{hongbao_dis:{},manjian_dis:{}},status:'订单已送达'}
     ]
 };
 

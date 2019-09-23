@@ -2,11 +2,10 @@ import React from 'react';
 import '../../assets/css/Orders/orders.css';
 import {NavBar, Icon } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
-import {connect} from 'react-redux';
 import uuid from 'uuid';
 import DingDancompItem from './DingDancompItem'
 
-class DingDancompItemLists extends React.Component{
+class DingDancompItemList extends React.Component{
     constructor(props) {
         super(props);
     }
@@ -27,11 +26,4 @@ class DingDancompItemLists extends React.Component{
     }
 }
 
-const mapStateToProps = (state)=> {
-    return {
-        ordList: state.orderindex.ordList
-    }
-};
-
-let DingDancompItemList = connect(mapStateToProps, null)(DingDancompItemLists);
 export default DingDancompItemList;

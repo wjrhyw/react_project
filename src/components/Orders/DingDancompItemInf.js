@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../assets/css/Orders/orders.css';
-import { Icon, Grid } from 'antd-mobile';
+import { Icon } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
-import {connect} from 'react-redux';
 import uuid from 'uuid';
 import Index from '../Index';
+import { red } from 'ansi-colors';
 
 class DingDancompItemInf extends React.Component{
     constructor(props) {
@@ -21,7 +21,8 @@ class DingDancompItemInf extends React.Component{
     }
 
     render(){
-      
+        // console.log(this.props);
+        // return <div>orders</div>
         let {id} = this.props.match.params;
         const {ordList} = this.props;
         let ordInfo =  ordList.find((item)=>{
@@ -47,20 +48,31 @@ class DingDancompItemInf extends React.Component{
                             )
                             }
                         </div>
-                        
+                        <div className="food_item">
+                                <span className="minicard" style={{backgroundColor: 'rgb(63, 136, 231)',color:"rgb(247, 242, 242)"}}>配送费</span>
+                                <span className="float_foodname span_font_mid">{ordInfo.delivery.deliver_way}</span>
+                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.delivery.deliver_price}</span>
+                        </div>
+                        {ordInfo.discount.hasOwnProperty("manjian_dis")&&(
+                        <div className="food_item">
+                                <span className="minicard" style={{backgroundColor: 'rgb(235, 120, 53, 0.849)',color:"rgb(247, 242, 242)"}}>满减</span>
+                                <span className="float_foodname span_font_mid">{ordInfo.discount.manjian_dis.discount_way}</span>
+                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.discount.manjian_dis.discount_val}</span>
+                        </div>)
+                        }
                     </div>
 
                     <div className="Inf_card">
                         <div className="flexleft bold_font">配送信息</div>
-                        <div className="Inf_cardChild"><span>电话:</span> <span>{ordInfo.tel}</span></div>
-                        <div className="Inf_cardChild"><span>配送方式:</span> <span>{ordInfo.delivery}</span></div>
+                        <div className="Inf_cardChild"><span>电话:</span> <span className="cardChild_right">{ordInfo.tel}</span></div>
+                        <div className="Inf_cardChild"><span>配送方式:</span> <span className="cardChild_right">{ordInfo.delivery.deliver_way}</span></div>
                     </div>
 
                     <div className="Inf_card">
                         <div className="flexleft bold_font">订单信息</div>
-                        <div className="Inf_cardChild"><span style={{width:"60px"}}>订单编号: </span> <span>{ordInfo.id}</span></div>
-                        <div className="Inf_cardChild"><span>支付方式: </span> <span>{ordInfo.payment}</span></div>
-                        <div className="Inf_cardChild"><span>下单时间: </span> <span>2019-07-07 16:00</span></div>
+                        <div className="Inf_cardChild"><span style={{flexShrink:'0',width:'61px'}}>订单编号: </span> <span className="cardChild_right" style={{flexGrow:'0'}}>{ordInfo.id}</span></div>
+                        <div className="Inf_cardChild"><span>支付方式: </span> <span className="cardChild_right">{ordInfo.payment}</span></div>
+                        <div className="Inf_cardChild"><span>下单时间: </span> <span className="cardChild_right">2019-07-07 16:00</span></div>
                         {/* <div className="flexleft">{}</div>
                         <div className="flexleft"> {ordInfo}</div>
                         <div className="flexleft"> </div> */}
@@ -69,11 +81,4 @@ class DingDancompItemInf extends React.Component{
     }
 }
 
-const mapStateToProps = (state)=> {
-    return {
-        ordList: state.orderindex.ordList
-    }
-};
-
-
-export default connect(mapStateToProps, null)(DingDancompItemInf);
+export default DingDancompItemInf;
