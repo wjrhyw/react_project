@@ -15,7 +15,27 @@ class Loading extends React.Component{
         };
         Loading.show=Loading.show.bind(this);
         Loading.hide=Loading.hide.bind(this);
+        console.log('构造函数被执行.......');
+        Loading.show();
     }
+        //暴露接口来控制loading组件的隐藏或者显示
+        static show(title){
+            console.log('被执行,被执行',this.state.visible,'this对象是',this.state);
+            this.setState({
+                visible:true,
+                title:title?title:'正在加载'
+            },()=>{
+                console.log('成功被执行');
+            });
+        }
+        static hide(){
+            console.log('关闭关闭',this.state.visible,'this对象是',this.state);
+            this.setState({
+                visible:false
+            },()=>{
+                console.log('结束被执行');
+            });
+        }
     render(){
         return (
             <div  style={{borderRadius:'10px',width:this.state.width,height:this.state.height,margin:'0 auto',display:this.state.visible?'block':'none',position:'fixed',top:`${parseInt(this.state.top)-parseInt(this.state.height)/2}px`,right:' 0',bottom:'0',left:'0',zIndex:'10000000',outline:'0',backgroundColor:'rgba(0, 0, 0, 0.65)'}}>
@@ -24,17 +44,10 @@ class Loading extends React.Component{
             </div>
         )
     }
-    //暴露接口来控制loading组件的隐藏或者显示
-    static show(title){
-        this.setState({
-            visible:true,
-           title:title?title:'正在加载'
-        });
-    }
-    static hide(){
-        this.setState({
-            visible:false
-        });
+    componentWillUnmount(){
+        this.setState = (state, callback) => {
+            return
+        }
     }
 
 }

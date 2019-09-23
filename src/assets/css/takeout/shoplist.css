@@ -1,0 +1,103 @@
+#div-main{
+    width:100%;
+    height:45px;
+    background-color:#029CFC;
+    position:relative;
+}
+.div-ul{
+    width:90%;
+    height:45px;
+    line-height:45px;
+    display:inline-block;
+    margin-right:35px;
+    overflow-x:auto;
+}
+.div-ul li{
+    float:left;
+    list-style:none;
+    color: #94E7FB;
+    margin:0 10px;
+    height:38px;
+    padding-bottom:10px
+}
+.div-ul::-webkit-scrollbar {display:none}
+#ul{
+    width: 200%
+}
+#ul ::after{
+    content:'';
+    clear: both;
+}
+.div-icon{
+    width:10%;
+    position:absolute;
+    top:13px;
+    right:5px
+}
+#flex_ulshop{
+    padding:10px 0px;
+    padding-bottom: 25px;
+    background-color:#FFFFFD
+}
+#flex_ulshop li{
+    list-style: none;
+    width:25%;
+    float: left;
+    color:#676767;
+    font-size: 14px;
+  
+}
+.flex_ul_first_lishop{
+    position:relative;
+}
+.flex_ul_last_lishop{
+    position:relative;
+}
+.flex_ul_last_li_imgshop{
+    position: absolute;
+    top:2px;
+    right:12px;
+    width:11px;
+    height:11px;
+}
+.flex_ul_first_li_imgshop{
+    position: absolute;
+    top:3px;
+    right:3px;
+    width:10px;
+    height:10px;
+}
+.tuijianshop{
+    font-size:18px;
+    color:'black';
+    margin:10px 0px;
+}
+.ul_flex_activeshop{
+    position: fixed;
+    max-height: 100%;
+    width: 100%;
+    top:45px;
+    background-color:#FFFFFD
+}
+.ul_listshop{
+    margin-top:10px
+}
+.ul_listshop li{
+    height:150px;
+    width:100%;
+    padding:10px 10px;
+    background-color:#fff;
+    border-bottom: 2px solid #F1EFF2;
+}
+
+.jianshop{
+    display: inline-block;
+    margin-right: 8px;
+}
+.tipshop{
+    margin-right:5px;
+}
+.active_li{
+    color: #fff !important;
+    border-bottom: 2px solid #fff;
+}

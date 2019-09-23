@@ -32,7 +32,19 @@ let data={
                 ]
         ],
         //shoplist
-        shoplist:[]
+        shoplist:[],
+        //shoplist--ul
+        ullist:[
+            '全部',
+            '面试粥点',
+            '简餐便当',
+            '汉堡披萨',
+            '香锅冒菜',
+            '小吃炸串',
+            '地方菜系',
+            '日韩料理',
+            '轻食简餐'
+        ]
     },
     takeoutmid:{
         imgurl:['http://p1.music.126.net/Pj5btpNr_LNYRnzkY2Oklw==/109951164340630437.jpg','http://p1.music.126.net/KxpKJc1IQmuYRQaoFCvi_g==/109951164340632770.jpg','http://p1.music.126.net/q5tGuVS--IY8sQCrItsDZQ==/109951164341168942.jpg'],
@@ -88,6 +100,14 @@ let takeoutindex=(state=data,action)=>{
                 }
         console.log(newstate.takeouthead);
         return newstate
+    }
+    if(action.type==='shoplist'){
+        console.log('被执行=========！！！！！！！！')
+        var newstat=JSON.stringify(state);
+        newstat=JSON.parse(newstat);
+        newstat.takeoutnav.shoplist=action.value;
+        console.log('新对象是',newstat);
+        return newstat
     }
     return state
 }

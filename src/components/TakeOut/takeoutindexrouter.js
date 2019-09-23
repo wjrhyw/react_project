@@ -11,13 +11,14 @@ class TakeoutIndexRouter extends React.Component{
             <Router>
                 <Switch>
                     <Route exact path='/' render={()=>{return <TakeOutIndex data={this.props.data} gps={this.props.gps}/>}} />
-                    <Route exact path='/ShopList/:id' render={()=>{return <ShopList data={12334} />}} />
+                    <Route exact path='/ShopList/:id' render={()=>{return <ShopList datalist={this.props.data.takeoutlist.list} shoplist={this.props.data.takeoutnav.shoplist} ullist={this.props.data.takeoutnav.ullist} list={this.props.shoplist}/>}} />
                 </Switch>
             </Router>
         )
     }
     componentDidMount(){
         console.log('takeoutindexouter的props是=========',this.props);
+        console.log('请求之后的数组是',this.props.data.takeoutnav.shoplist);
     }
 }
 function gps(){
@@ -55,6 +56,7 @@ function gps(){
     })
 }
 const mapStateToProps=function(state){
+    console.log('状态是!!!!',state);
     return {
         data:state.takeoutindex,
     }
@@ -65,7 +67,7 @@ const mapDispatchToProps=function(dispatch){
         //位置定位功能
         gps:()=>{gps().then((res)=>{dispatch({type:'gps',value:res})})},
         //获取商铺列表        
-        shoplist:()=>{request('get','/shopping/restaurants?latitude=31.22967&longitude=121.4762').then((res)=>{dispatch({type:'shoplist',value:res})})}
+        shoplist:()=>{request('get','/shopping/restaurants?latitude=31.22967&longitude=121.4762').then((res)=>{console.log('被执行被执行',res);dispatch({type:'shoplist',value:res})})}
         //其余事件
     }
 }
