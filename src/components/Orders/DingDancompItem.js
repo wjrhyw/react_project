@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/css/Orders/orders.css';
-import {Button,NavBar, Icon } from 'antd-mobile';
+import {Button} from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
 import uuid from 'uuid';
 

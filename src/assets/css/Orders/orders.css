@@ -97,6 +97,7 @@ a{
 }
 
 #ItemInfDad{
+overflow-y: auto;
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
@@ -139,6 +140,12 @@ margin: 20px 0px 0px 10px;
     flex-direction: column;
 }
 
+.Inf_cardChild{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+
 .flexleft{
     align-self: flex-start;
     text-align: left;
@@ -161,6 +168,11 @@ margin: 20px 0px 0px 10px;
     width: 130px;
     height: 16px;
     overflow: hidden;
+}
+
+.bold_font{
+    font-weight: bold;
+    font-size: 16px;
 }
 
 /*DingDan-Style*/

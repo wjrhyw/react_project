@@ -1,10 +1,9 @@
 import React, { Suspense, lazy }  from 'react';
 import '../../assets/css/Orders/orders.css';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
-// import DingDancompItemInf from './OrderInfDetail';
 import DingDancompItemList from './OrdersInfList';
+import Loading from '../loading';
 const DingDancompItemInf = lazy(() => import('./OrderInfDetail'));
-// const DingDancompItemList = lazy(() => import('./OrdersInfList'));
 
 
 class DingDancomp extends React.Component{
