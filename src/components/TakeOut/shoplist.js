@@ -8,20 +8,27 @@ class ShopList extends React.Component{
         super(props);
         this.state={
             index:'0',
-            display:'block',
+            display:'none',
         }
     }
     componentDidMount(){
         Index.hide();
+        Loading.show();
+        setTimeout(()=>{
+            this.setState({
+                display:'block'
+            },()=>{
+                Loading.hide();
+            })
+        },700)
     }
     //绑定事件
     click(index,e){
+        Loading.show();
         console.log('家在组建对象是',Loading);
         this.setState({
             index,
             display:'none'
-        },()=>{
-            Loading.show();
         })
         console.log('被点击的是',index);
         let that=this;
@@ -32,7 +39,7 @@ class ShopList extends React.Component{
                 Loading.hide();
                 clearTimeout(time);
             })
-        }, 1000);
+        }, 700);
     }
     componentWillUnmount(){
         this.setState = (state, callback) => {
