@@ -1,54 +1,87 @@
 import React from 'react';
 import '../../assets/css/takeout/takeoutlist.css';
-import Loadding from '../loading';
 import Zonghe from './zonghe';
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
         this.state={
             fixed:false,
-            text:''
+            text:'',
+            select:'综合排序'
         }
-        this.click=this.click.bind(this);
+       this.click=this.click.bind(this);
+        this.Ziclick=this.Ziclick.bind(this);
+        this.click1=this.click1.bind(this);
+        this.Ziclick1=this.Ziclick1.bind(this);
+        this.divclick=this.divclick.bind(this);
     }
     //绑定事件
-    click(e){
-        console.log('被点击的对象是',e.clientY);
-        if(e.clientY>388&&this.state.fixed==true){
+    divclick(e){
+        if(this.state.text=='综'&&this.state.fixed==true&&e.clientY>380){
             this.setState({
                 fixed:false
             },()=>{
-                Zonghe.hide();
+                Zonghe.hide()
             })
-        }else{
-            var text=e.target.innerHTML.slice(0,1);
-            if(text=='综'||text=='筛'){
-                this.setState({
-                    fixed:true,
-                    text
-               },()=>{
-                   Zonghe.show(text)
-               });
-            }
         }
+        if(this.state.text=='筛'&&this.state.fixed==true&&e.clientY>485){
+            this.setState({
+                fixed:false
+            },()=>{
+                Zonghe.hide()
+            })
+        }
+    }
+    click(e){
+     
+        this.setState({
+            fixed:true,
+            text:'综'
+        },()=>{
+            Zonghe.show('综')
+        });
+    }
+    click1(e){
+        this.setState({
+            fixed:true,
+            text:'筛'
+        },()=>{
+            Zonghe.show('筛')
+        });
+    }
+    //给子组件传递事件
+    Ziclick(select){
+        this.setState({
+            select,
+            fixed:false
+        },()=>{
+            Zonghe.hide();
+        });
+    }
+    Ziclick1(){
+        this.setState({
+            fixed:false
+        },()=>{
+            Zonghe.hide();
+        });
     }
     render(){
         return (
-            <div id='TakeOutList' onClick={this.click} >
-                 <Zonghe/>
+            <div id='TakeOutList' onClick={this.divclick}>
+                 <Zonghe zclick={this.Ziclick} zclick1={this.Ziclick1}/>
                 <p className='tuijian'>推荐商家­­­­­­­</p>
                 <ul id='flex_ul' style={this.state.fixed==true?{position:'fixed',top:'45px',width:'100%'}:{}} className={this.state.fixed==true?'ulli_active':''} className={this.props.scroll>643?'ul_flex_active':''}>
-                    <li className='flex_ul_first_li'  style={this.state.text=='综'&&this.state.fixed==true?{color:'#4186BC'}:{}}>
-                        综合排序 
+                    <li onClick={this.click} className='flex_ul_first_li'  style={this.state.text=='综'&&this.state.fixed==true?{color:'#4186BC'}:{}}>
+                        {this.state.select} 
                         {
                             this.state.text=='综'&&this.state.fixed==true
-                            ?<img className='flex_ul_first_li_img' src={require('../../assets/img/arrow_active.png')}/>
-                            :<img className='flex_ul_first_li_img' src={require('../../assets/img/arrow.png')}/>
+                            ?<img className='flex_ul_first_li_img' style={(this.state.select.slice(0,1)=='人'||this.state.select.slice(0,1)=='配')?{right:'-7px'}:{}} src={require('../../assets/img/arrow_active.png')}/>
+                            :<img className='flex_ul_first_li_img' style={(this.state.select.slice(0,1)=='人'||this.state.select.slice(0,1)=='配')?{right:'-7px'}:{}} src={require('../../assets/img/arrow.png')}/>
                         }
                     </li>
                     <li style={this.state.text=='距'&&this.state.fixed==true?{color:'#4186BC'}:{}}>距离最近</li>
                     <li style={this.state.text=='品'&&this.state.fixed==true?{color:'#4186BC'}:{}}>品质联盟</li>
-                    <li style={this.state.text=='筛'&&this.state.fixed==true?{color:'#4186BC'}:{}} className='flex_ul_last_li'>
+                    <li onClick={this.click1} style={this.state.text=='筛'&&this.state.fixed==true?{color:'#4186BC'}:{}} className='flex_ul_last_li'>
                         筛选
                         {
                             this.state.text=='筛'&&this.state.fixed==true
