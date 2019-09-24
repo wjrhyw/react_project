@@ -1,26 +1,56 @@
 import React from 'react';
 import '../../assets/css/takeout/takeoutlist.css';
 import Loadding from '../loading';
-import ShopList from './shoplist';
+import Zonghe from './zonghe';
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
+        this.state={
+            fixed:false,
+            text:''
+        }
+        this.click=this.click.bind(this);
+    }
+    //绑定事件
+    click(e){
+        console.log('被点击的对象是',e.clientX);
+        if(e.clientX>68&&this.state.fixed==true){
+            this.setState({
+                fixed:false
+            },()=>{
+                Zonghe.hide();
+            })
+        }else{
+            this.setState({
+                fixed:true,
+                text:e.target.innerHTML.slice(0,1)
+           },()=>{
+               Zonghe.show()
+           });}
     }
     render(){
         return (
-            <div id='TakeOutList'>
-                <Loadding color='red' title='wjrwjr'/>
+            <div id='TakeOutList' onClick={this.click} >
+                 <Zonghe/>
                 <p className='tuijian'>推荐商家­­­­­­­</p>
-                <ul id='flex_ul' className={this.props.scroll>643?'ul_flex_active':''}>
-                    <li className='flex_ul_first_li'>
+                <ul id='flex_ul' style={this.state.fixed==true?{position:'fixed',top:'45px',width:'100%'}:{}} className={this.state.fixed==true?'ulli_active':''} className={this.props.scroll>643?'ul_flex_active':''}>
+                    <li className='flex_ul_first_li'  style={this.state.text=='综'&&this.state.fixed==true?{color:'#4186BC'}:{}}>
                         综合排序 
-                        <img className='flex_ul_first_li_img' src={require('../../assets/img/arrow.png')}/>
+                        {
+                            this.state.text=='综'&&this.state.fixed==true
+                            ?<img className='flex_ul_first_li_img' src={require('../../assets/img/arrow_active.png')}/>
+                            :<img className='flex_ul_first_li_img' src={require('../../assets/img/arrow.png')}/>
+                        }
                     </li>
-                    <li>距离最近</li>
-                    <li>品质联盟</li>
-                    <li className='flex_ul_last_li'>
+                    <li style={this.state.text=='距'&&this.state.fixed==true?{color:'#4186BC'}:{}}>距离最近</li>
+                    <li style={this.state.text=='品'&&this.state.fixed==true?{color:'#4186BC'}:{}}>品质联盟</li>
+                    <li style={this.state.text=='筛'&&this.state.fixed==true?{color:'#4186BC'}:{}} className='flex_ul_last_li'>
                         筛选
-                        <img className='flex_ul_last_li_img' src={require('../../assets/img/select.png')}/>
+                        {
+                            this.state.text=='筛'&&this.state.fixed==true
+                            ?<img className='flex_ul_first_li_img' src={require('../../assets/img/select_active.png')}/>
+                            :<img className='flex_ul_first_li_img' src={require('../../assets/img/select.png')}/>
+                        }
                     </li>
                 </ul>
                 <p style={this.props.scroll>643?{display:'block',height:'20px'}:{display:'none'}}></p>

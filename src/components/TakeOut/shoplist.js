@@ -41,11 +41,7 @@ class ShopList extends React.Component{
             })
         }, 700);
     }
-    componentWillUnmount(){
-        this.setState = (state, callback) => {
-            return
-        }
-    }
+
     render(){
         return (
             <div>
