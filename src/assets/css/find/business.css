@@ -42,7 +42,7 @@
     align-items: center;
 }
 #container{
-    height: 70%;
+    height: 62%;
 }
 #container .commodity{
     height: 100%;
@@ -53,5 +53,57 @@
 }
 #container .commodity .item{
     display: flex;
-    padding: 4% 0;
+    padding: 3% 0;
+    height: 110px;
+}
+#container .commodity .stepper{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 1px solid #ddd;
+    text-align: center;
+    border-radius: 100%;
+    background: #3090E8;
+    color: white;
+    font-weight: bold;
+    line-height: 20px;
+}
+#container .commodity .stepvalue{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    border: none;
+}
+#footer{
+    width: 100%;
+    background: #3D3D3F;
+    height: 8%;
+    position: fixed;
+    bottom: 0px;
+}
+#footer .sub{
+    float: right;
+    height: 100%;
+    width: 120px;
+    background: #535356;
+    line-height: 50px;
+    text-align: center;
+    color:white;
+    font-size: 15px;
+}
+#footer .shopcaricon{
+    width:80%;
+    margin:0 10%;
+    position: relative;
+    top: -20px;
+}
+#footer .spend{
+    color: white;
+    width:20%;
+    height: 100%;
+    float:left;
+    text-align:left;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter,Route,Link,Switch} from "react-router-dom"
-import Business from "./Business"
+import BusinessIndex from "./Business"
 import FindIndex from "./FindIndex"
 
 class FindRouter extends React.Component{
@@ -8,7 +8,7 @@ class FindRouter extends React.Component{
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/business"  component={Business}  />
+                    <Route path="/business"  component={BusinessIndex}  />
                     <Route component={FindIndex}  />
                 </Switch>
             </BrowserRouter>

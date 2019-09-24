@@ -12,6 +12,7 @@ import findindex from "../../store/reducers/Find/findreducers";
 import store from "../../index";
 import {GET_ALL_FIND} from "../../store/action/actionType";
 import Loading1 from "../../components/loading"
+import Index from "../Index";
 
 class FindIndex1 extends React.Component{
     constructor(props){
@@ -26,6 +27,7 @@ class FindIndex1 extends React.Component{
         this.setState({
             show:true
         })
+        Index.show();
     }
     componentDidMount() {
         Loading1.show();
