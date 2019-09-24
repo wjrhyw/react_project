@@ -13,20 +13,24 @@ class TakeOutList extends React.Component{
     }
     //绑定事件
     click(e){
-        console.log('被点击的对象是',e.clientX);
-        if(e.clientX>68&&this.state.fixed==true){
+        console.log('被点击的对象是',e.clientY);
+        if(e.clientY>388&&this.state.fixed==true){
             this.setState({
                 fixed:false
             },()=>{
                 Zonghe.hide();
             })
         }else{
-            this.setState({
-                fixed:true,
-                text:e.target.innerHTML.slice(0,1)
-           },()=>{
-               Zonghe.show()
-           });}
+            var text=e.target.innerHTML.slice(0,1);
+            if(text=='综'||text=='筛'){
+                this.setState({
+                    fixed:true,
+                    text
+               },()=>{
+                   Zonghe.show(text)
+               });
+            }
+        }
     }
     render(){
         return (
