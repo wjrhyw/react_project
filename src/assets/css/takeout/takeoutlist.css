@@ -60,3 +60,9 @@
 .tip{
     margin-right:5px;
 }
+.ulli_active{
+    position: fixed;
+    top: 45px;
+    z-index: 20000000000000;
+    width: 100%;
+}
