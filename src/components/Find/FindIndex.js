@@ -6,12 +6,12 @@ import '../../assets/font-awesome-4.7.0/css/font-awesome.css'
 import gaifan1 from '../../assets/img/find/gaifan1.jpg'
 import gaifan2 from '../../assets/img/find/gaifan2.jpg'
 import request from "../../utils/request"
-import Loading from "./Loading"
+//import Loading from "./Loading"
 import {connect} from "react-redux";
 import findindex from "../../store/reducers/Find/findreducers";
 import store from "../../index";
 import {GET_ALL_FIND} from "../../store/action/actionType";
-import Loading1 from "../../components/loading"
+//import Loading1 from "../../components/loading"
 import Index from "../Index";
 
 class FindIndex1 extends React.Component{
@@ -30,7 +30,7 @@ class FindIndex1 extends React.Component{
         Index.show();
     }
     componentDidMount() {
-        Loading1.show();
+        //Loading1.show();
         var req=request("get","/shopping/v2/menu",{restaurant_id:2});
         req.then(
             (res)=> {
@@ -44,7 +44,7 @@ class FindIndex1 extends React.Component{
                         show:false
                     })
                 }, 500);
-                 Loading1.hide();
+                 //Loading1.hide();
             }
         )
     }

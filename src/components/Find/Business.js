@@ -130,7 +130,7 @@ class BusinessIndex1 extends React.Component{
                                                     {
                                                         this.props.list[index1].content.map((value,index)=>{
                                                             return(
-                                                                <div className="item" key={index}>
+                                                                <div className="items" key={index}>
                                                                     <div style={{width:"33%"}}>
                                                                         <img style={{width:"100%",height:"100%"}} src={value.img}/>
                                                                     </div>
