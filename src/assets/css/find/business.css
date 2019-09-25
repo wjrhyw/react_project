@@ -100,7 +100,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-#container .pingjia .classify_btn{
+#container .pingjia .classify .classify_btn{
     font-size: 12px;
     border: none;
     padding:8px 10px;
@@ -113,7 +113,7 @@
     background: white;
     height: 200px;
 }
-
+#container .pingjia .comment
 
 /*底部计算价格*/
 #footer{

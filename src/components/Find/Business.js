@@ -7,6 +7,8 @@ import reduce from '../../assets/img/find/reduce.png'
 import shopcaron from '../../assets/img/find/shopcaron.jpg'
 import shopcaroff from '../../assets/img/find/shopcaroff.jpg'
 import fivestar from '../../assets/img/find/fivestar.png'
+import touxiang from "../../assets/img/find/touxiang.jpg"
+import gaifan1 from "../../assets/img/find/gaifan1.jpg";
 import Index from "../Index"
 import store from "../../index";
 //import {GET_ONE_BUSINESS} from '../../action/actionType';
@@ -186,23 +188,34 @@ class BusinessIndex1 extends React.Component{
                                 </div>
                             </div>
                             <div className="classify" onClick={this.click}>
-                                <button className="classify_btn"  style={this.state.el=='全部3451'?{background:"#3A95FE",color:"white"}:{}}>全部3451</button>
-                                <button className="classify_btn" style={this.state.el=='最新'?{background:"#3A95FE",color:"white"}:{}}>最新</button>
-                                <button className="classify_btn" style={this.state.el=='好评3210'?{background:"#3A95FE",color:"white"}:{}}>好评3210</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='差评115'?{background:"#3A95FE",color:"white"}:{}}>差评115</button>
-                                <button className="classify_btn" style={this.state.el=='有图382'?{background:"#3A95FE",color:"white"}:{}}>有图382</button>
-                                <button className="classify_btn" style={this.state.el=='味道好64'?{background:"#3A95FE",color:"white"}:{}}>味道好64</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='不好吃18'?{background:"#3A95FE",color:"white"}:{}}>不好吃18</button>
-                                <button className="classify_btn" style={this.state.el=='包装精美13'?{background:"#3A95FE",color:"white"}:{}}>包装精美13</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='分量一般11'?{background:"#3A95FE",color:"white"}:{}}>分量一般11</button>
+                                {
+                                    this.props.list2.map((value,index)=>{
+                                        return(
+                                            <button key={index} className="classify_btn"  style={this.state.el==value.name+" "+value.num?{background:"#3A95FE",color:"white"}:{}}>{value.name} {value.num}</button>
+                                        )
+                                    })
+                                }   
                             </div>
                             <div className="comment">
-                                <WingBlank >
-                                    <div>
-                                        <div>
-                                            <img src="" alt=""/>
+                                <WingBlank>
+                                    <div style={{display:"flex",padding:"20px 0",borderBottom:"1px solid #ddd"}}>
+                                        <div style={{width:"12%",marginRight:"3%"}}>
+                                            <img src={touxiang} style={{width:"100%",borderRadius:"50px"}} alt=""/>
                                         </div>
-                                        <div>内容</div>
+                                        <div style={{width:"88%"}}>
+                                            <div>
+                                                <span>匿名用户</span>
+                                                <span style={{float:"right",fontSize:"12px",color:"#7c7c7c"}}>2019-08-31</span>
+                                            </div>
+                                            <div style={{margin:"5px 0px"}}>
+                                                <img src={fivestar} style={{width:"22%"}} alt=""/>
+                                                <span style={{marginLeft:"5px",color:"#FF5B00",fontSize:"12px"}}>超赞</span>
+                                            </div>
+                                            <div>品尝了小米红枣养生粥和银耳红枣羹,真的超级超级好喝,超级超级美味,100000颗星好评!这也太好吃了,我这辈子都没有吃过这么好吃的东西</div>
+                                            <div>
+                                                <img style={{width:"60%",marginTop:"20px"}} src={gaifan1} alt=""/>
+                                            </div>
+                                        </div>
                                     </div>
                                 </WingBlank>
                             </div>
@@ -236,9 +249,10 @@ class BusinessIndex1 extends React.Component{
 }
 
 const mapStateToProps = (state)=> {
-    console.log(state.businessindex);
+    //console.log(state.businessindex);
     return {
-        list: state.businessindex
+        list: state.businessindex,
+        list2:state.commentreducers
     }
 };
 
