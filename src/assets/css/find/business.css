@@ -44,6 +44,8 @@
 #container{
     height: 62%;
 }
+
+/*商品*/
 #container .commodity{
     height: 100%;
 }
@@ -76,6 +78,44 @@
     text-align: center;
     border: none;
 }
+
+/*评价*/
+#container .pingjia{
+    background: #F7F7F7;
+}
+#container .pingjia .score{
+    background: white;
+    display: flex;
+    text-align: center;
+    height:80px;
+    align-items: center;
+    color:#5c5c5c;
+}
+#container .pingjia .classify{
+    margin-top:10px;
+    padding:15px 20px;
+    width:100%;
+    background:white;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+#container .pingjia .classify_btn{
+    font-size: 12px;
+    border: none;
+    padding:8px 10px;
+    background: #eff3ff;
+    color:#7c7c7c;
+    margin:0 10px 10px 0;
+}
+#container .pingjia .comment{
+    margin-top: 5px;
+    background: white;
+    height: 200px;
+}
+
+
+/*底部计算价格*/
 #footer{
     width: 100%;
     background: #3D3D3F;

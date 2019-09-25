@@ -6,6 +6,7 @@ import shopicon from '../../assets/img/find/shopicon.jpg'
 import reduce from '../../assets/img/find/reduce.png'
 import shopcaron from '../../assets/img/find/shopcaron.jpg'
 import shopcaroff from '../../assets/img/find/shopcaroff.jpg'
+import fivestar from '../../assets/img/find/fivestar.png'
 import Index from "../Index"
 import store from "../../index";
 //import {GET_ONE_BUSINESS} from '../../action/actionType';
@@ -20,9 +21,10 @@ class BusinessIndex1 extends React.Component{
         this.state={
             findlist:[],
             total:0,
+            el:null,
             num:0
         };
-
+    this.click=this.click.bind(this);
     }
     componentWillMount() {
         Index.hide();
@@ -60,10 +62,15 @@ class BusinessIndex1 extends React.Component{
     };
     goSettlement=()=>{
         console.log("这里是结算")
+    };
+
+    click(e){
+        console.log('被点击的是',e.target.innerHTML);
+        this.setState({
+            el:e.target.innerHTML
+        })
     }
     render(){
-        console.log(this.state.total);
-        console.log(this.state.num)
         const tabs1 = [
             { title: <Badge>商品</Badge> },
             { title: <Badge>评价</Badge> },
@@ -158,8 +165,47 @@ class BusinessIndex1 extends React.Component{
                                 }
                             </Tabs>
                         </div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: 'red' }}>
-                            这是第二个模块
+                        <div className="pingjia">
+                            <div className="score">
+                                <div style={{width:"25%",color:"#FF5B00",fontSize:"32px"}}>4.6</div>
+                                <div style={{width:"23%",textAlign:"left"}}>
+                                    <span>商家评分</span>
+                                    <img src={fivestar} style={{width:"70%",marginTop:"2%"}} alt=""/>
+                                </div>
+                                <div style={{width:"16%"}}>
+                                    <p>味道</p>
+                                    <p style={{fontSize:"20px"}}>4.7</p>
+                                </div>
+                                <div style={{width:"16%"}}>
+                                    <p>包装</p>
+                                    <p style={{fontSize:"20px"}}>4.7</p>
+                                </div>
+                                <div style={{width:"20%",borderLeft:"1px solid #7c7c7c"}}>
+                                    <p>配送</p>
+                                    <p style={{fontSize:"20px"}}>4.7</p>
+                                </div>
+                            </div>
+                            <div className="classify" onClick={this.click}>
+                                <button className="classify_btn"  style={this.state.el=='全部3451'?{background:"#3A95FE",color:"white"}:{}}>全部3451</button>
+                                <button className="classify_btn" style={this.state.el=='最新'?{background:"#3A95FE",color:"white"}:{}}>最新</button>
+                                <button className="classify_btn" style={this.state.el=='好评3210'?{background:"#3A95FE",color:"white"}:{}}>好评3210</button>
+                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='差评115'?{background:"#3A95FE",color:"white"}:{}}>差评115</button>
+                                <button className="classify_btn" style={this.state.el=='有图382'?{background:"#3A95FE",color:"white"}:{}}>有图382</button>
+                                <button className="classify_btn" style={this.state.el=='味道好64'?{background:"#3A95FE",color:"white"}:{}}>味道好64</button>
+                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='不好吃18'?{background:"#3A95FE",color:"white"}:{}}>不好吃18</button>
+                                <button className="classify_btn" style={this.state.el=='包装精美13'?{background:"#3A95FE",color:"white"}:{}}>包装精美13</button>
+                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='分量一般11'?{background:"#3A95FE",color:"white"}:{}}>分量一般11</button>
+                            </div>
+                            <div className="comment">
+                                <WingBlank >
+                                    <div>
+                                        <div>
+                                            <img src="" alt=""/>
+                                        </div>
+                                        <div>内容</div>
+                                    </div>
+                                </WingBlank>
+                            </div>
                         </div>
                     </Tabs>
                 </div>
