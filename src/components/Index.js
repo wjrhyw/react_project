@@ -22,7 +22,7 @@ class Index extends Component{
       hidden:false
     })
   }
-  //影藏方法
+  //隐藏方法
   static hide(){
     this.setState({
       hidden:true
