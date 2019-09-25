@@ -8,7 +8,8 @@ class Zonghe extends React.Component{
             show:'',
             active_sf:[],
             active_yh:'',
-            active_xf:''
+            active_xf:'',
+            select:'综合排序'
         }
         Zonghe.show=this.show.bind(this);
         Zonghe.hide=this.hide.bind(this);
@@ -19,6 +20,7 @@ class Zonghe extends React.Component{
         this.sss=this.sss.bind(this);
         this.clear=this.clear.bind(this);
         this.submit=this.submit.bind(this);
+        this.ssss=this.ssss.bind(this);
     }
     //返回样式方法
     s(text){
@@ -40,6 +42,13 @@ class Zonghe extends React.Component{
             }
         }
     }
+    ssss(text){
+        if(this.state.select==text){
+            return {
+                color:'#4C87A9'
+            }
+        }
+    }
     //暴露方法
     show(text){
         this.setState({
@@ -57,6 +66,9 @@ class Zonghe extends React.Component{
         if(e.target.className=='ul_zonghe'){
             return 
         }
+        this.setState({
+            select:e.target.innerHTML
+        })
         this.props.zclick(e.target.innerHTML);
     }
     click2(e){
@@ -112,15 +124,15 @@ class Zonghe extends React.Component{
                 {
                     this.state.show!='筛'
                     ?<ul className='ul_zonghe' onClick={this.click}>
-                        <li>综合排序</li>
-                        <li>好评优先</li>
-                        <li>销量最高</li>
-                        <li>起送价最高</li>
-                        <li>配送最快</li>
-                        <li>配送费最低</li>
-                        <li>人均从低到高</li>
-                        <li>人均从高到低</li>
-                        <li>通用排序</li>
+                        <li style={this.ssss('综合排序')}>综合排序</li>
+                        <li style={this.ssss('好评优先')}>好评优先</li>
+                        <li style={this.ssss('销量最高')}>销量最高</li>
+                        <li style={this.ssss('起送价最高')}>起送价最高</li>
+                        <li style={this.ssss('配送最快')}>配送最快</li>
+                        <li style={this.ssss('配送费最低')}>配送费最低</li>
+                        <li style={this.ssss('人均从低到高')}>人均从低到高</li>
+                        <li style={this.ssss('人均从高到低')}>人均从高到低</li>
+                        <li style={this.ssss('通用排序')}>通用排序</li>
                     </ul>
                     :<ul className='ul_zonghe_2' style={{width:'100%',color:'#5F5F61'}} onClick={this.click2}>
                         <li>

@@ -68,6 +68,7 @@ class TakeOutList extends React.Component{
     render(){
         return (
             <div id='TakeOutList' onClick={this.divclick}>
+               
                  <Zonghe zclick={this.Ziclick} zclick1={this.Ziclick1}/>
                 <p className='tuijian'>推荐商家­­­­­­­</p>
                 <ul id='flex_ul' style={this.state.fixed==true?{position:'fixed',top:'45px',width:'100%'}:{}} className={this.state.fixed==true?'ulli_active':''} className={this.props.scroll>643?'ul_flex_active':''}>
@@ -102,8 +103,10 @@ class TakeOutList extends React.Component{
                                     <div style={{float:'left',width:'80%',textAlign:'left',paddingLeft:'5px'}}>
                                         <p style={{color:'#353535',fontSize:'14px',fontWeight:'600',marginBottom:'10px'}}>{val.title}</p>
                                         <div style={{color:'#5E5E5E',fontSize:'10px',marginBottom:'10px'}}>
-                                            <span>星星</span>
-                                            <span style={{margin:'0 10px'}}>5.0</span>
+                                            <span>
+                                                <img src={require('../../assets/img/start .png')} style={{height:'10px'}}/>
+                                            </span>
+                                            <span style={{marginRight:'10px',marginLeft:'6px'}}>{val.star}</span>
                                             <span>月售1990单</span>
                                         </div>
                                         <div style={{marginBottom:'10px',color:'#5E5E5E',fontSize:'10px'}}>
