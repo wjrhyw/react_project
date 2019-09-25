@@ -55,7 +55,7 @@ let data={
         {
             title:'吾王碳烤鸡',
             img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
-            star:5,
+            star:4.9,
             start:'￥20起送',
             get:'免费配送',
             tip:['汉堡薯条','支持自取'],
@@ -64,7 +64,7 @@ let data={
         {
             title:'吾王碳烤鸡',
             img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
-            star:4,
+            star:4.9,
             start:'￥20起送',
             get:'免费配送',
             tip:['汉堡薯条','支持自取'],
@@ -73,7 +73,7 @@ let data={
         {
             title:'吾王碳烤鸡',
             img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
-            star:3,
+            star:4.5,
             start:'￥20起送',
             get:'免费配送',
             tip:['汉堡薯条','支持自取'],
@@ -82,7 +82,25 @@ let data={
         {
             title:'吾王碳烤鸡',
             img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
-            star:2,
+            star:4.2,
+            start:'￥20起送',
+            get:'免费配送',
+            tip:['汉堡薯条','支持自取'],
+            sport:'满35减21，满50减31，满81减45'
+        },
+        {
+            title:'吾王碳烤鸡',
+            img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
+            star:3.4,
+            start:'￥20起送',
+            get:'免费配送',
+            tip:['汉堡薯条','支持自取'],
+            sport:'满35减21，满50减31，满81减45'
+        },
+        {
+            title:'吾王碳烤鸡',
+            img:'http://p2.music.126.net/cx2OS7N5saENHQQ9HoYpZQ==/109951164327301283.jpg?param=140y140',
+            star:2.9,
             start:'￥20起送',
             get:'免费配送',
             tip:['汉堡薯条','支持自取'],
