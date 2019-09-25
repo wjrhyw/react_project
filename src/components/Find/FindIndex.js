@@ -6,12 +6,13 @@ import '../../assets/font-awesome-4.7.0/css/font-awesome.css'
 import gaifan1 from '../../assets/img/find/gaifan1.jpg'
 import gaifan2 from '../../assets/img/find/gaifan2.jpg'
 import request from "../../utils/request"
-import Loading from "./Loading"
+//import Loading from "./Loading"
 import {connect} from "react-redux";
 import findindex from "../../store/reducers/Find/findreducers";
 import store from "../../index";
 import {GET_ALL_FIND} from "../../store/action/actionType";
 import Loading1 from "../../components/loading"
+import Index from "../Index";
 
 class FindIndex1 extends React.Component{
     constructor(props){
@@ -26,6 +27,7 @@ class FindIndex1 extends React.Component{
         this.setState({
             show:true
         })
+        Index.show();
     }
     componentDidMount() {
         Loading1.show();
@@ -60,6 +62,7 @@ class FindIndex1 extends React.Component{
         return (
             <div style={{background:"white"}}>
                 {/* {this.htmls()} */}
+                <Loading1 />
                 <NavBar mode="dark" icon={<Icon type="left"/>} onLeftClick={() => console.log("111")}>发现</NavBar>
                 <div style={{marginTop:"30px",fontSize:"18px"}}>
                     <i className="fa fa-thumbs-o-up" style={{color:"#DA305F"}} aria-hidden="true"></i>为你推荐

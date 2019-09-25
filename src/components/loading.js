@@ -13,13 +13,11 @@ class Loading extends React.Component{
             top:`${document.body.clientHeight/2}px`,
             title:this.props.title?this.props.title:'正在加载'
         };
-        Loading.show=Loading.show.bind(this);
-        Loading.hide=Loading.hide.bind(this);
-        console.log('构造函数被执行.......');
-        Loading.show();
+        Loading.show=this.show.bind(this);
+        Loading.hide=this.hide.bind(this);
     }
         //暴露接口来控制loading组件的隐藏或者显示
-        static show(title){
+         show=(title)=>{
             console.log('被执行,被执行',this.state.visible,'this对象是',this.state);
             this.setState({
                 visible:true,
@@ -28,7 +26,7 @@ class Loading extends React.Component{
                 console.log('成功被执行');
             });
         }
-        static hide(){
+         hide=()=>{
             console.log('关闭关闭',this.state.visible,'this对象是',this.state);
             this.setState({
                 visible:false

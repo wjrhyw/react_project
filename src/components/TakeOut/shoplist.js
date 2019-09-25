@@ -8,20 +8,27 @@ class ShopList extends React.Component{
         super(props);
         this.state={
             index:'0',
-            display:'block',
+            display:'none',
         }
     }
     componentDidMount(){
         Index.hide();
+        Loading.show();
+        setTimeout(()=>{
+            this.setState({
+                display:'block'
+            },()=>{
+                Loading.hide();
+            })
+        },700)
     }
     //绑定事件
     click(index,e){
+        Loading.show();
         console.log('家在组建对象是',Loading);
         this.setState({
             index,
             display:'none'
-        },()=>{
-            Loading.show();
         })
         console.log('被点击的是',index);
         let that=this;
@@ -32,13 +39,9 @@ class ShopList extends React.Component{
                 Loading.hide();
                 clearTimeout(time);
             })
-        }, 1000);
+        }, 700);
     }
-    componentWillUnmount(){
-        this.setState = (state, callback) => {
-            return
-        }
-    }
+
     render(){
         return (
             <div>
@@ -95,8 +98,10 @@ class ShopList extends React.Component{
                                     <div style={{float:'left',width:'80%',textAlign:'left',paddingLeft:'5px'}}>
                                         <p style={{color:'#353535',fontSize:'14px',fontWeight:'600',marginBottom:'10px'}}>{val.title}</p>
                                         <div style={{color:'#5E5E5E',fontSize:'10px',marginBottom:'10px'}}>
-                                            <span>星星</span>
-                                            <span style={{margin:'0 10px'}}>5.0</span>
+                                            <span>
+                                                <img src={require('../../assets/img/start .png')} style={{height:'12px'}}/>
+                                            </span>
+                                            <span style={{marginRight:'10px',marginLeft:'6px'}}>{val.start}</span>
                                             <span>月售1990单</span>
                                         </div>
                                         <div style={{marginBottom:'10px',color:'#5E5E5E',fontSize:'10px'}}>
