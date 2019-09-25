@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-r
 import {connect} from 'react-redux';
 import DingDancompItemList from './OrdersInfList';
 const DingDancompItemInf = lazy(() => import('./DingDancompItemInf'));
+const DingDancreate = lazy(() => import('./DingDancreate'));
 
 
 class DingDancomps extends React.Component{
@@ -12,6 +13,7 @@ class DingDancomps extends React.Component{
            <Router>
                 <Suspense fallback={<div>Loading...</div>}>
                 <Switch>
+                    <Route exact path="/createOrder" render={(props)=>{return <DingDancreate {...props} ordList={this.props.ordList}/>}} />
                     <Route exact path="/orders/:id" render={(props)=>{return <DingDancompItemInf {...props} ordList={this.props.ordList}/>}} />
                     <Route exact path='/' render={(props)=>{return <DingDancompItemList {...props} ordList={this.props.ordList} />}} />
                     <Route render={()=>{return <DingDancompItemList ordList={this.props.ordList} />}}/>

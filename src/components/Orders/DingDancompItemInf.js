@@ -29,6 +29,9 @@ class DingDancompItemInf extends React.Component{
             return item.id === id;
         });
 
+        let discheck1 = ordInfo.discount.manjian_dis;
+        let discheck2 = ordInfo.discount.hongbao_dis;
+
         if(!ordInfo){
             // console.log(this.props.history);
             // this.props.history.go(-1);
@@ -53,13 +56,27 @@ class DingDancompItemInf extends React.Component{
                                 <span className="float_foodname span_font_mid">{ordInfo.delivery.deliver_way}</span>
                                 <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.delivery.deliver_price}</span>
                         </div>
-                        {ordInfo.discount.hasOwnProperty("manjian_dis")&&(
+                        {(JSON.stringify(discheck1) != "{}")&&(
                         <div className="food_item">
                                 <span className="minicard" style={{backgroundColor: 'rgb(235, 120, 53, 0.849)',color:"rgb(247, 242, 242)"}}>满减</span>
                                 <span className="float_foodname span_font_mid">{ordInfo.discount.manjian_dis.discount_way}</span>
                                 <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.discount.manjian_dis.discount_val}</span>
                         </div>)
                         }
+
+                        {(JSON.stringify(discheck2) != "{}")&&(
+                        <div className="food_item">
+                                <span className="minicard" style={{backgroundColor: 'rgb(235, 120, 53, 0.849)',color:"rgb(247, 242, 242)"}}>红包</span>
+                                <span className="float_foodname span_font_mid">{discheck2.discount_way}</span>
+                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{discheck2.discount_val}</span>
+                        </div>)
+                        }
+
+                        <div className="food_item">
+                               <span>实付￥</span> 
+                        </div>
+
+
                     </div>
 
                     <div className="Inf_card">

@@ -17,6 +17,11 @@ class DingDancompItemList extends React.Component{
             <NavBar
             mode="dark"
             >订单</NavBar>
+            <NavLink to="/createOrder">
+                <button>
+                    createorder
+                </button>
+            </NavLink>
             {
             ordList.map((item,index)=>
             <DingDancompItem orders={item}  key={uuid()}></DingDancompItem>)

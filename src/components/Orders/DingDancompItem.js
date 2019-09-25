@@ -10,11 +10,31 @@ class DingDancompItem extends React.Component{
     }
     render(){
         let fod_price= 0;
-        let fod_price_fix = 0;
+        let fod_price_fix1 = 0;
+        let mjdis = 0;
+        let hbdis = 0;
+        let manjian_disck = this.props.orders.discount.manjian_dis;
+        let hongbao_disck = this.props.orders.discount.hongbao_dis;
+        let delivery = this.props.orders.delivery;
+
         this.props.orders.foods.forEach(element => {
             fod_price = fod_price + element.foodprice;
-            fod_price_fix = fod_price.toFixed(1);
+            //console.log(fod_price);
+            fod_price_fix1 = parseFloat(fod_price.toFixed(1));
         });
+
+        if(JSON.stringify(manjian_disck) != "{}")
+        {
+            mjdis = manjian_disck.discount_val;
+        }
+        
+        if(JSON.stringify(hongbao_disck) != "{}")
+        {
+            hbdis = hongbao_disck.discount_val;
+        }
+        let fod_price_fix2 = fod_price_fix1 + delivery.deliver_price - hbdis - mjdis ;
+        let fod_price_fix = parseFloat(fod_price_fix2.toFixed(1));
+        
         return(
             <div className="CardOutSet">
                 <div className="CardShopIcon">
@@ -56,4 +76,5 @@ class DingDancompItem extends React.Component{
     }
 }
 
+//export {fod_price_fix};
 export default DingDancompItem;

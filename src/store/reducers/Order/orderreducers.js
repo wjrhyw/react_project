@@ -1,7 +1,6 @@
-import {GET_ALL_ITEM} from '../../action/actionType';
 import uuid from 'uuid';
 
-function uuidFix(){
+export function uuidFix(){
     let idfix = uuid();
     let reg = new RegExp("-","g");
     let a = idfix.replace(reg,"");
@@ -24,7 +23,7 @@ const orderData = {
 
  let orderindex = (state = orderData, action)=>{
 
-    if(action.type === GET_ALL_ITEM){
+    if(action.type === 'get_all_item'){
         const newState = JSON.parse(JSON.stringify(state));
         return newState;
     }

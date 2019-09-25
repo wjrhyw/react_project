@@ -144,6 +144,13 @@ margin: 20px 0px 0px 10px;
     display: flex;
     justify-content: space-between;
     padding: 5px 0px;
+    align-items: center;
+    height: 26px;
+}
+
+.cardChild_left{
+    font-size: 14px;
+    /* height: 14px; */
 }
 
 .cardChild_right{
@@ -190,4 +197,44 @@ margin: 20px 0px 0px 10px;
     font-size: 16px;
 }
 
+.Inf_card .am-list-extra {
+    overflow:visible !important;
+    font-size: 14px !important;
+}
+
+.Inf_card .am-list-item{
+    padding-left: 0px !important;
+    min-height:auto !important;
+}
+
+.Inf_card .Inf_cardChild .am-list-line{
+    padding-right:0 !important;
+}
+
+.Inf_card>.Inf_cardChild>div{
+    width:100% !important;
+    height: 31px !important;
+    padding: 5px 0px !important;
+}
+
+.Inf_card .Inf_cardChild .am-list-line>.am-list-extra{
+    font-size: 12px !important;
+}
+
+.Inf_card .Inf_cardChild .am-list-line>.am-list-content{
+    font-size: 14px !important;
+}
+
+.Inf_card .Inf_cardChild .am-list-line>div{
+    padding:0 !important;
+}
+
+/* .Inf_card .Inf_cardChild .am-list-line .am-list-extra{
+    padding-right:0 !important;
+} */
+
+.adressDiv{
+    font-size: 20px;
+    font-weight: bold;
+}
 /*DingDan-Style*/
