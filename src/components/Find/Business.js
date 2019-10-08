@@ -194,7 +194,7 @@ class BusinessIndex1 extends React.Component{
                                             <button key={index} className="classify_btn"  style={this.state.el==value.name+" "+value.num?{background:"#3A95FE",color:"white"}:{}}>{value.name} {value.num}</button>
                                         )
                                     })
-                                }   
+                                }
                             </div>
                             <div className="comment">
                                 <WingBlank>
@@ -223,14 +223,13 @@ class BusinessIndex1 extends React.Component{
                     </Tabs>
                 </div>
                 <div style={{height:"8%"}}> </div>
-                <div id="footer">
+                <div id="footer" >
                     <div style={{width:"20%",float:"left"}}>
                         <Badge text={this.state.num} style={{display:"inline-block",position:"absolute",top:"-20px",right:"0px"}}>
                             {
                                 this.state.num==0?<img src={shopcaroff} className="shopcaricon" alt=""/>:
                                     <img src={shopcaron} className="shopcaricon" alt=""/>
                             }
-
                         </Badge>
                     </div>
                     <div className="spend">
@@ -241,7 +240,6 @@ class BusinessIndex1 extends React.Component{
                         20-this.state.total>0? <div className="sub">还差¥{Number((20-this.state.total).toFixed(2))}起送</div>:
                             <div className="sub" style={{background:"#4BD964"}} onClick={()=>this.goSettlement()}>去结算</div>
                     }
-
                 </div>
             </div>
         )
