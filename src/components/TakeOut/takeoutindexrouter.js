@@ -5,6 +5,7 @@ import TakeOutIndex from '../TakeOut/TakeOutIndex';
 import ShopList from './shoplist';
 import $ from 'jquery';
 import request from '../../utils/request';
+import Business from '../Find/Business'
 class TakeoutIndexRouter extends React.Component{
     render(){
         return (
@@ -12,6 +13,7 @@ class TakeoutIndexRouter extends React.Component{
                 <Switch>
                     <Route exact path='/' render={()=>{return <TakeOutIndex data={this.props.data} gps={this.props.gps}/>}} />
                     <Route exact path='/ShopList/:id' render={()=>{return <ShopList datalist={this.props.data.takeoutlist.list} shoplist={this.props.data.takeoutnav.shoplist} ullist={this.props.data.takeoutnav.ullist} list={this.props.shoplist}/>}} />
+                    <Route exact path='/business' component={Business}></Route>
                 </Switch>
             </Router>
         )

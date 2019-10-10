@@ -2,7 +2,8 @@ import React from 'react';
 import Index from '../Index';
 import { NavBar,Icon } from 'antd-mobile';
 import '../../assets/css/takeout/shoplist.css';
-import Loading from '../loading'
+import Loading from '../loading';
+import {Link} from 'react-router-dom'
 class ShopList extends React.Component{
     constructor(props){
         super(props);
@@ -91,7 +92,8 @@ class ShopList extends React.Component{
                         this.props.datalist.map((val,index)=>{
                             return (
                                 <li key={index}>
-                                    <div style={{float:'left',width:'20%'}}>
+                                   <Link to='/business'>
+                                   <div style={{float:'left',width:'20%'}}>
                                         <img src={val.img} style={{width:'60px',height:'60px',marginTop:'10px'}}/>
                                     </div>
                                     <div style={{float:'left',width:'80%',textAlign:'left',paddingLeft:'5px'}}>
@@ -119,6 +121,7 @@ class ShopList extends React.Component{
                                             <span style={{color:'#656567',fontSize:'10px',lineHeight:'14px'}}>{val.sport}</span>
                                         </div>
                                     </div>
+                                   </Link>
                                 </li>
                             )
                         })
