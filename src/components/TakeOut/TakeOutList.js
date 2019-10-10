@@ -10,7 +10,7 @@ class TakeOutList extends React.Component{
             text:'',
             select:'综合排序'
         }
-       this.click=this.click.bind(this);
+        this.click=this.click.bind(this);
         this.Ziclick=this.Ziclick.bind(this);
         this.click1=this.click1.bind(this);
         this.Ziclick1=this.Ziclick1.bind(this);
