@@ -28,7 +28,6 @@ class BusinessIndex1 extends React.Component{
             num:0,
             car:[{name:'first'}]
         };
-    //this.click=this.click.bind(this);
     }
     componentWillMount() {
         Index.hide();
@@ -40,7 +39,7 @@ class BusinessIndex1 extends React.Component{
                 arr.push({name,price,num:num+1});
                 val.name='false'
             }else if(val.name==name){
-                    val.num+=1;
+                val.num+=1;
             }else if(!arr.some((val)=>{return val.name==name})){
                 arr.push({name,price,num:num+1});
             }
@@ -49,7 +48,7 @@ class BusinessIndex1 extends React.Component{
             },()=>{
                 console.log('最后的state是',this.state.car);
             });
-        })
+        });
         store.dispatch({
             type:"add_one_num",
             change:{index1,index,num}
@@ -60,10 +59,29 @@ class BusinessIndex1 extends React.Component{
             total:nowtotal,
             num:this.state.num+1
         })
-
-
     };
-    stepReduce=(index1,index,num,price)=>{
+    stepReduce=(index1,index,num,price,name)=>{
+        let arr =this.state.car;
+        arr.forEach((val,index)=>{
+            if(val.name!=name){
+                return
+            }else if(val.name==name&&val.num>=1){
+                val.num-=1;
+                if(val.num==0){
+                    if(arr.length==2){
+                        arr[0].name='first'
+                    }
+                    arr.splice(index,1);
+                    console.log('数组状态时',arr);
+                    return
+                }
+            }
+            this.setState({
+                car:arr
+            },()=>{
+                console.log('最后的state是',this.state.car);
+            });
+        })
         store.dispatch({
             type:"reduce_one_num",
             change:{index1,index,num}
@@ -81,9 +99,9 @@ class BusinessIndex1 extends React.Component{
         })
     };
     goSettlement=()=>{
-        console.log("这里是结算")
+        var list=this.state.car;
+        console.log("列表为",list);
     };
-
     click(e,index){
         console.log('被点击的是',e.target.innerHTML);
         console.log('被点击的id为',index);
@@ -174,7 +192,7 @@ class BusinessIndex1 extends React.Component{
                                                                         <div>
                                                                             <span style={{color:"red",fontSize:"16px"}}>{value.price}</span>
                                                                             <div style={{float:"right"}}>
-                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price)}>-</span>
+                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price,value.name)}>-</span>
                                                                                 <span className="stepvalue">{value.num}</span>
                                                                                 <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price,value.name)}>+</span>
                                                                             </div>
