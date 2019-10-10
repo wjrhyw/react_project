@@ -23,11 +23,11 @@ class BusinessIndex1 extends React.Component{
         this.state={
             findlist:[],
             total:0,
-            el:null,
+            el:"全部",
+            classify:0,
             num:0,
             car:[{name:'first'}]
         };
-    this.click=this.click.bind(this);
     }
     componentWillMount() {
         Index.hide();
@@ -39,7 +39,7 @@ class BusinessIndex1 extends React.Component{
                 arr.push({name,price,num:num+1});
                 val.name='false'
             }else if(val.name==name){
-                    val.num+=1;
+                val.num+=1;
             }else if(!arr.some((val)=>{return val.name==name})){
                 arr.push({name,price,num:num+1});
             }
@@ -48,7 +48,7 @@ class BusinessIndex1 extends React.Component{
             },()=>{
                 console.log('最后的state是',this.state.car);
             });
-        })
+        });
         store.dispatch({
             type:"add_one_num",
             change:{index1,index,num}
@@ -59,10 +59,29 @@ class BusinessIndex1 extends React.Component{
             total:nowtotal,
             num:this.state.num+1
         })
-
-
     };
-    stepReduce=(index1,index,num,price)=>{
+    stepReduce=(index1,index,num,price,name)=>{
+        let arr =this.state.car;
+        arr.forEach((val,index)=>{
+            if(val.name!=name){
+                return
+            }else if(val.name==name&&val.num>=1){
+                val.num-=1;
+                if(val.num==0){
+                    if(arr.length==2){
+                        arr[0].name='first'
+                    }
+                    arr.splice(index,1);
+                    console.log('数组状态时',arr);
+                    return
+                }
+            }
+            this.setState({
+                car:arr
+            },()=>{
+                console.log('最后的state是',this.state.car);
+            });
+        })
         store.dispatch({
             type:"reduce_one_num",
             change:{index1,index,num}
@@ -80,13 +99,19 @@ class BusinessIndex1 extends React.Component{
         })
     };
     goSettlement=()=>{
-        console.log("这里是结算")
+        var list=this.state.car;
+        console.log("列表为",list);
     };
-
-    click(e){
+    click(e,index){
         console.log('被点击的是',e.target.innerHTML);
+        console.log('被点击的id为',index);
+        const reg = /[\u4e00-\u9fa5]/g;
+        var names = e.target.innerHTML.match(reg);
+        var res = names.join("");
+        console.log("取出的汉字为:",res);
         this.setState({
-            el:e.target.innerHTML
+            el:res,
+            classify:index
         })
     }
     render(){
@@ -167,7 +192,7 @@ class BusinessIndex1 extends React.Component{
                                                                         <div>
                                                                             <span style={{color:"red",fontSize:"16px"}}>{value.price}</span>
                                                                             <div style={{float:"right"}}>
-                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price)}>-</span>
+                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price,value.name)}>-</span>
                                                                                 <span className="stepvalue">{value.num}</span>
                                                                                 <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price,value.name)}>+</span>
                                                                             </div>
@@ -204,36 +229,42 @@ class BusinessIndex1 extends React.Component{
                                     <p style={{fontSize:"20px"}}>4.7</p>
                                 </div>
                             </div>
-                            <div className="classify" onClick={this.click}>
+                            <div className="classify">
                                 {
                                     this.props.list2.map((value,index)=>{
                                         return(
-                                            <button key={index} className="classify_btn"  style={this.state.el==value.name+" "+value.num?{background:"#3A95FE",color:"white"}:{}}>{value.name} {value.num}</button>
+                                            <button  onClick={(e)=>this.click(e,index)} key={index}  className="classify_btn"  style={this.state.el==value.name?{background:"#3A95FE",color:"white"}:{}}>{value.name} {value.num}</button>
                                         )
                                     })
                                 }
                             </div>
                             <div className="comment">
                                 <WingBlank>
-                                    <div style={{display:"flex",padding:"20px 0",borderBottom:"1px solid #ddd"}}>
-                                        <div style={{width:"12%",marginRight:"3%"}}>
-                                            <img src={touxiang} style={{width:"100%",borderRadius:"50px"}} alt=""/>
-                                        </div>
-                                        <div style={{width:"88%"}}>
-                                            <div>
-                                                <span>匿名用户</span>
-                                                <span style={{float:"right",fontSize:"12px",color:"#7c7c7c"}}>2019-08-31</span>
-                                            </div>
-                                            <div style={{margin:"5px 0px"}}>
-                                                <img src={fivestar} style={{width:"22%"}} alt=""/>
-                                                <span style={{marginLeft:"5px",color:"#FF5B00",fontSize:"12px"}}>超赞</span>
-                                            </div>
-                                            <div>品尝了小米红枣养生粥和银耳红枣羹,真的超级超级好喝,超级超级美味,100000颗星好评!这也太好吃了,我这辈子都没有吃过这么好吃的东西</div>
-                                            <div>
-                                                <img style={{width:"60%",marginTop:"20px"}} src={gaifan1} alt=""/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {
+                                        this.props.list2[this.state.classify].content.map((value,index)=>{
+                                            return(
+                                                <div key={index} style={{display:"flex",padding:"20px 0",borderBottom:"1px solid #ddd"}}>
+                                                    <div style={{width:"12%",marginRight:"3%"}}>
+                                                        <img src={touxiang} style={{width:"100%",borderRadius:"50px"}} alt=""/>
+                                                    </div>
+                                                    <div style={{width:"88%"}}>
+                                                        <div>
+                                                            <span>{value.name}</span>
+                                                            <span style={{float:"right",fontSize:"12px",color:"#7c7c7c"}}>{value.time}</span>
+                                                        </div>
+                                                        <div style={{margin:"5px 0px"}}>
+                                                            <img src={fivestar} style={{width:"22%"}} alt=""/>
+                                                            <span style={{marginLeft:"5px",color:"#FF5B00",fontSize:"12px"}}>{value.starmeanming}</span>
+                                                        </div>
+                                                        <div>{value.text}</div>
+                                                        <div>
+                                                            <img style={{width:"60%",marginTop:"20px"}} src={value.img} alt=""/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </WingBlank>
                             </div>
                         </div>
