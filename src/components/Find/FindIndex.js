@@ -21,7 +21,6 @@ class FindIndex1 extends React.Component{
             show:true,
             list:[1,2,3]
         }
-        console.log('props是',this.props.list);
     }
     componentWillMount(){
         this.setState({
@@ -34,6 +33,7 @@ class FindIndex1 extends React.Component{
         var req=request("get","/shopping/v2/menu",{restaurant_id:2});
         req.then(
             (res)=> {
+                console.log(res)
                 store.dispatch({
                     type:GET_ALL_FIND,
                     list:res[0].foods
@@ -108,7 +108,7 @@ class FindIndex1 extends React.Component{
 
 
 const mapStateToProps = (state)=> {
-    console.log(state.findindex.list);
+    //console.log(state.findindex.list);
     return {
         list: state.findindex.list
     }
