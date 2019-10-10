@@ -9,7 +9,7 @@ class FindRouter extends React.Component{
             <BrowserRouter>
                 <Switch>
                     <Route path="/business"  component={BusinessIndex}  />
-                    <Route component={BusinessIndex}  />
+                    <Route component={FindIndex}  />
                 </Switch>
             </BrowserRouter>
         )
