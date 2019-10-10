@@ -24,7 +24,7 @@ class ShopList extends React.Component{
     }
     //绑定事件
     click(index,e){
-        Loading.show();
+        Loading.show('自定义');
         console.log('家在组建对象是',Loading);
         this.setState({
             index,
@@ -45,7 +45,6 @@ class ShopList extends React.Component{
     render(){
         return (
             <div>
-               
                 <div style={{position:'fixed',top:'0'}}>
                     <NavBar 
                         mode="light"
