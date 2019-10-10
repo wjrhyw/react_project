@@ -22,14 +22,31 @@ class BusinessIndex1 extends React.Component{
             findlist:[],
             total:0,
             el:null,
-            num:0
+            num:0,
+            car:[{name:'first'}]
         };
     this.click=this.click.bind(this);
     }
     componentWillMount() {
         Index.hide();
     }
-    stepAdd=(index1,index,num,price)=>{
+    stepAdd=(index1,index,num,price,name)=>{
+        var arr=this.state.car;
+        arr.forEach((val)=>{
+            if(val.name=='first'){
+                arr.push({name,price,num:num+1});
+                val.name='false'
+            }else if(val.name==name){
+                    val.num+=1;
+            }else if(!arr.some((val)=>{return val.name==name})){
+                arr.push({name,price,num:num+1});
+            }
+            this.setState({
+                car:arr
+            },()=>{
+                console.log('最后的state是',this.state.car);
+            });
+        })
         store.dispatch({
             type:"add_one_num",
             change:{index1,index,num}
@@ -150,7 +167,7 @@ class BusinessIndex1 extends React.Component{
                                                                             <div style={{float:"right"}}>
                                                                                 <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price)}>-</span>
                                                                                 <span className="stepvalue">{value.num}</span>
-                                                                                <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price)}>+</span>
+                                                                                <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price,value.name)}>+</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
