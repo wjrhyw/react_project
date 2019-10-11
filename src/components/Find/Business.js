@@ -7,6 +7,8 @@ import reduce from '../../assets/img/find/reduce.png'
 import shopcaron from '../../assets/img/find/shopcaron.jpg'
 import shopcaroff from '../../assets/img/find/shopcaroff.jpg'
 import fivestar from '../../assets/img/find/fivestar.png'
+import touxiang from "../../assets/img/find/touxiang.jpg"
+import gaifan1 from "../../assets/img/find/gaifan1.jpg";
 import Index from "../Index"
 import store from "../../index";
 //import {GET_ONE_BUSINESS} from '../../action/actionType';
@@ -21,15 +23,32 @@ class BusinessIndex1 extends React.Component{
         this.state={
             findlist:[],
             total:0,
-            el:null,
-            num:0
+            el:"全部",
+            classify:0,
+            num:0,
+            car:[{name:'first'}]
         };
-    this.click=this.click.bind(this);
     }
     componentWillMount() {
         Index.hide();
     }
-    stepAdd=(index1,index,num,price)=>{
+    stepAdd=(index1,index,num,price,name)=>{
+        var arr=this.state.car;
+        arr.forEach((val)=>{
+            if(val.name=='first'){
+                arr.push({name,price,num:num+1});
+                val.name='false'
+            }else if(val.name==name){
+                val.num+=1;
+            }else if(!arr.some((val)=>{return val.name==name})){
+                arr.push({name,price,num:num+1});
+            }
+            this.setState({
+                car:arr
+            },()=>{
+                console.log('最后的state是',this.state.car);
+            });
+        });
         store.dispatch({
             type:"add_one_num",
             change:{index1,index,num}
@@ -40,10 +59,29 @@ class BusinessIndex1 extends React.Component{
             total:nowtotal,
             num:this.state.num+1
         })
-
-
     };
-    stepReduce=(index1,index,num,price)=>{
+    stepReduce=(index1,index,num,price,name)=>{
+        let arr =this.state.car;
+        arr.forEach((val,index)=>{
+            if(val.name!=name){
+                return
+            }else if(val.name==name&&val.num>=1){
+                val.num-=1;
+                if(val.num==0){
+                    if(arr.length==2){
+                        arr[0].name='first'
+                    }
+                    arr.splice(index,1);
+                    console.log('数组状态时',arr);
+                    return
+                }
+            }
+            this.setState({
+                car:arr
+            },()=>{
+                console.log('最后的state是',this.state.car);
+            });
+        })
         store.dispatch({
             type:"reduce_one_num",
             change:{index1,index,num}
@@ -61,13 +99,19 @@ class BusinessIndex1 extends React.Component{
         })
     };
     goSettlement=()=>{
-        console.log("这里是结算")
+        var list=this.state.car;
+        console.log("列表为",list);
     };
-
-    click(e){
+    click(e,index){
         console.log('被点击的是',e.target.innerHTML);
+        console.log('被点击的id为',index);
+        const reg = /[\u4e00-\u9fa5]/g;
+        var names = e.target.innerHTML.match(reg);
+        var res = names.join("");
+        console.log("取出的汉字为:",res);
         this.setState({
-            el:e.target.innerHTML
+            el:res,
+            classify:index
         })
     }
     render(){
@@ -148,9 +192,9 @@ class BusinessIndex1 extends React.Component{
                                                                         <div>
                                                                             <span style={{color:"red",fontSize:"16px"}}>{value.price}</span>
                                                                             <div style={{float:"right"}}>
-                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price)}>-</span>
+                                                                                <span className="stepper" onClick={()=>this.stepReduce(index1,index,value.num,value.price,value.name)}>-</span>
                                                                                 <span className="stepvalue">{value.num}</span>
-                                                                                <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price)}>+</span>
+                                                                                <span className="stepper" onClick={()=>this.stepAdd(index1,index,value.num,value.price,value.name)}>+</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -185,39 +229,55 @@ class BusinessIndex1 extends React.Component{
                                     <p style={{fontSize:"20px"}}>4.7</p>
                                 </div>
                             </div>
-                            <div className="classify" onClick={this.click}>
-                                <button className="classify_btn"  style={this.state.el=='全部3451'?{background:"#3A95FE",color:"white"}:{}}>全部3451</button>
-                                <button className="classify_btn" style={this.state.el=='最新'?{background:"#3A95FE",color:"white"}:{}}>最新</button>
-                                <button className="classify_btn" style={this.state.el=='好评3210'?{background:"#3A95FE",color:"white"}:{}}>好评3210</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='差评115'?{background:"#3A95FE",color:"white"}:{}}>差评115</button>
-                                <button className="classify_btn" style={this.state.el=='有图382'?{background:"#3A95FE",color:"white"}:{}}>有图382</button>
-                                <button className="classify_btn" style={this.state.el=='味道好64'?{background:"#3A95FE",color:"white"}:{}}>味道好64</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='不好吃18'?{background:"#3A95FE",color:"white"}:{}}>不好吃18</button>
-                                <button className="classify_btn" style={this.state.el=='包装精美13'?{background:"#3A95FE",color:"white"}:{}}>包装精美13</button>
-                                <button className="classify_btn" style={{background:"#f6f6f6"}} style={this.state.el=='分量一般11'?{background:"#3A95FE",color:"white"}:{}}>分量一般11</button>
+                            <div className="classify">
+                                {
+                                    this.props.list2.map((value,index)=>{
+                                        return(
+                                            <button  onClick={(e)=>this.click(e,index)} key={index}  className="classify_btn"  style={this.state.el==value.name?{background:"#3A95FE",color:"white"}:{}}>{value.name} {value.num}</button>
+                                        )
+                                    })
+                                }
                             </div>
                             <div className="comment">
-                                <WingBlank >
-                                    <div>
-                                        <div>
-                                            <img src="" alt=""/>
-                                        </div>
-                                        <div>内容</div>
-                                    </div>
+                                <WingBlank>
+                                    {
+                                        this.props.list2[this.state.classify].content.map((value,index)=>{
+                                            return(
+                                                <div key={index} style={{display:"flex",padding:"20px 0",borderBottom:"1px solid #ddd"}}>
+                                                    <div style={{width:"12%",marginRight:"3%"}}>
+                                                        <img src={touxiang} style={{width:"100%",borderRadius:"50px"}} alt=""/>
+                                                    </div>
+                                                    <div style={{width:"88%"}}>
+                                                        <div>
+                                                            <span>{value.name}</span>
+                                                            <span style={{float:"right",fontSize:"12px",color:"#7c7c7c"}}>{value.time}</span>
+                                                        </div>
+                                                        <div style={{margin:"5px 0px"}}>
+                                                            <img src={fivestar} style={{width:"22%"}} alt=""/>
+                                                            <span style={{marginLeft:"5px",color:"#FF5B00",fontSize:"12px"}}>{value.starmeanming}</span>
+                                                        </div>
+                                                        <div>{value.text}</div>
+                                                        <div>
+                                                            <img style={{width:"60%",marginTop:"20px"}} src={value.img} alt=""/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
                                 </WingBlank>
                             </div>
                         </div>
                     </Tabs>
                 </div>
                 <div style={{height:"8%"}}> </div>
-                <div id="footer">
+                <div id="footer" >
                     <div style={{width:"20%",float:"left"}}>
                         <Badge text={this.state.num} style={{display:"inline-block",position:"absolute",top:"-20px",right:"0px"}}>
                             {
                                 this.state.num==0?<img src={shopcaroff} className="shopcaricon" alt=""/>:
                                     <img src={shopcaron} className="shopcaricon" alt=""/>
                             }
-
                         </Badge>
                     </div>
                     <div className="spend">
@@ -228,7 +288,6 @@ class BusinessIndex1 extends React.Component{
                         20-this.state.total>0? <div className="sub">还差¥{Number((20-this.state.total).toFixed(2))}起送</div>:
                             <div className="sub" style={{background:"#4BD964"}} onClick={()=>this.goSettlement()}>去结算</div>
                     }
-
                 </div>
             </div>
         )
@@ -236,9 +295,10 @@ class BusinessIndex1 extends React.Component{
 }
 
 const mapStateToProps = (state)=> {
-    console.log(state.businessindex);
+    //console.log(state.businessindex);
     return {
-        list: state.businessindex
+        list: state.businessindex,
+        list2:state.commentreducers
     }
 };
 

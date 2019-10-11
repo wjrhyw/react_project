@@ -13,17 +13,17 @@ class Index extends Component{
       prerenderingSiblingsNumber:0,
       hidden:false
     };
-    Index.show=Index.show.bind(this);
-    Index.hide=Index.hide.bind(this);
+    Index.show=this.show.bind(this);
+    Index.hide=this.hide.bind(this);
   }
   //显示方法
-  static show(){
+   show(){
     this.setState({
       hidden:false
     })
   }
   //隐藏方法
-  static hide(){
+   hide(){
     this.setState({
       hidden:true
     })

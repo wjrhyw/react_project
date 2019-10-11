@@ -2,7 +2,8 @@ import React from 'react';
 import Index from '../Index';
 import { NavBar,Icon } from 'antd-mobile';
 import '../../assets/css/takeout/shoplist.css';
-import Loading from '../loading'
+import Loading from '../loading';
+import {Link} from 'react-router-dom'
 class ShopList extends React.Component{
     constructor(props){
         super(props);
@@ -24,7 +25,7 @@ class ShopList extends React.Component{
     }
     //绑定事件
     click(index,e){
-        Loading.show();
+        Loading.show('自定义');
         console.log('家在组建对象是',Loading);
         this.setState({
             index,
@@ -45,7 +46,6 @@ class ShopList extends React.Component{
     render(){
         return (
             <div>
-               
                 <div style={{position:'fixed',top:'0'}}>
                     <NavBar 
                         mode="light"
@@ -92,7 +92,8 @@ class ShopList extends React.Component{
                         this.props.datalist.map((val,index)=>{
                             return (
                                 <li key={index}>
-                                    <div style={{float:'left',width:'20%'}}>
+                                   <Link to='/business'>
+                                   <div style={{float:'left',width:'20%'}}>
                                         <img src={val.img} style={{width:'60px',height:'60px',marginTop:'10px'}}/>
                                     </div>
                                     <div style={{float:'left',width:'80%',textAlign:'left',paddingLeft:'5px'}}>
@@ -120,6 +121,7 @@ class ShopList extends React.Component{
                                             <span style={{color:'#656567',fontSize:'10px',lineHeight:'14px'}}>{val.sport}</span>
                                         </div>
                                     </div>
+                                   </Link>
                                 </li>
                             )
                         })
