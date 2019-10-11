@@ -1,0 +1,23 @@
+.createBtn{
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 40px;
+    background: linear-gradient(90deg, rgba(103, 199, 14, 0.877) 0%,rgba(42, 185, 13, 0.877) 100%);;
+    color: white;
+    float: right;
+    margin: 6px 10px 0 0;
+    border: 0;
+    border-radius: 5px;
+    outline:none;
+}
+
+.b2ottom_bar{
+    background-color: rgba(128, 128, 128, 0.897);
+    height: 60px;
+    width: 100%;
+    flex-shrink: 0;
+    position: fixed;
+    bottom: 0px;
+}

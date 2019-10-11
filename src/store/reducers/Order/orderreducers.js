@@ -28,6 +28,32 @@ const orderData = {
         return newState;
     }
 
+    if(action.type === 'del_order_item'){
+        const newState = JSON.parse(JSON.stringify(state));
+       
+        newState.ordList.forEach((orders, index) => {
+            if (orders.id === action.orderId) {
+                newState.ordList.splice(index, 1);
+            }
+        });
+        
+        //newState.finishedCount = finishedCount;
+        return newState;
+    }
+
+    if(action.type === 'del_order_item'){
+        const newState = JSON.parse(JSON.stringify(state));
+       
+        newState.ordList.forEach((orders, index) => {
+            if (orders.id === action.orderId) {
+                newState.ordList.splice(index, 1);
+            }
+        });
+        
+        //newState.finishedCount = finishedCount;
+        return newState;
+    }
+
     return state;
 }
 

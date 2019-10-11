@@ -8,6 +8,10 @@
     justify-content:center;
 }
 
+.cleanflot{
+    clear: both;
+}
+
 .CardShopIcon img{
     height: 45px;
     width: 45px;
@@ -104,6 +108,7 @@ justify-content: flex-start;
 height: 100%;
 width: 100%;
 background-color: rgb(233, 230, 230);
+padding-bottom:  60px;
 }
 
 .title_status{

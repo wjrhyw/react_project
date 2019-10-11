@@ -2,13 +2,16 @@ import React from 'react';
 import '../../assets/css/Orders/orders.css';
 import {Button} from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
+import {getDelItemAction} from '../../store/action/actionCreator'
 import uuid from 'uuid';
+import {connect} from 'react-redux';
 
 class DingDancompItem extends React.Component{
     constructor(props) {
         super(props);
     }
     render(){
+        const {removeOrder} = this.props;
         let fod_price= 0;
         let fod_price_fix1 = 0;
         let mjdis = 0;
@@ -68,7 +71,7 @@ class DingDancompItem extends React.Component{
                     </div>
                     <div className="CardInsideRighchild3">
                             <Button className="Carildbtn" size="small">再来一单</Button>
-                            <Button className="Carildbtn" size="small">删除订单</Button>
+                            <Button onClick = {()=>removeOrder(this.props.orders.id)} className="Carildbtn" size="small">删除订单</Button>
                     </div>
                 </div>
             </div>
@@ -76,5 +79,14 @@ class DingDancompItem extends React.Component{
     }
 }
 
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        removeOrder(orderId){
+            const action = getDelItemAction(orderId);
+            dispatch(action);
+        }
+    }
+};
+
 //export {fod_price_fix};
-export default DingDancompItem;
+export default  connect(null, mapDispatchToProps)(DingDancompItem);

@@ -1,10 +1,13 @@
 import React from 'react';
 import '../../assets/css/Orders/orders.css';
-import { Icon,Picker,List } from 'antd-mobile';
+import '../../assets/css/Orders/dingdancreate.css'
+import { Icon,Picker,List,Button } from 'antd-mobile';
 import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-router-dom";
 //import uuidFix from '../../store/reducers/Order/orderreducers';
 import Index from '../Index';
 import uuid from 'uuid';
+import {uuidFix} from '../../store/reducers/Order/orderreducers'
+import { green } from 'ansi-colors';
 
 var myDate = new Date();
 
@@ -47,12 +50,27 @@ const datelist = [
       let hor = 0;
       for(let i =0;i<48;i++){
         let timeObj ={};
-        if(min == 60){
+        if(min >= 60){
             hor = hor + 1;
             min = 0;
         }
+        if(myDate.getHours() == hor)
+        {
+          hor = myDate.getHours();
+          if(myDate.getMinutes()<30){
+            min= myDate.getMinutes() +30;
+          }
+          else if(myDate.getMinutes() >= 30){
+           min= myDate.getMinutes()-30;
+           hor = hor + 1;
+          }
+        }
+        if(hor>=24){
+          break;
+        }
         let hors = addZero(hor);
         let mins = addZero(min);
+        
         timeObj.label = `${hors}`+ ":" +`${mins}`;
         timeObj.value = `${hors}`+ ":" +`${mins}`;
         ar1.push(timeObj);
@@ -71,7 +89,7 @@ class DingDancreate extends React.Component{
         this.state = {
             sValue: [],
             canjuValue:[],
-            time_now : `(${addZero(myDate.getHours())}`+":"+`${addZero(myDate.getMinutes())})`,
+            time_now : `(${addZero(myDate.getMinutes()>=30?myDate.getHours()+1:myDate.getHours())}`+":"+`${addZero(myDate.getMinutes()>=30?myDate.getMinutes()-30:myDate.getMinutes()+30)})`,
             canju:1
           };
     }
@@ -83,6 +101,46 @@ class DingDancreate extends React.Component{
     backNavRender(){
         window.history.back(-1);
         Index.show();
+    }
+
+    calcprice(){
+      const {ordList} = this.props;
+      let ordInfo =  ordList[1];
+      let fod_price= 0;
+      let fod_price_fix1 = 0;
+      let mjdis = 0;
+      let hbdis = 0;
+      let manjian_disck = ordInfo.discount.manjian_dis;
+      let hongbao_disck = ordInfo.discount.hongbao_dis;
+      let delivery = ordInfo.delivery;
+
+      ordInfo.foods.forEach(element => {
+          fod_price = fod_price + element.foodprice;
+          //console.log(fod_price);
+          fod_price_fix1 = parseFloat(fod_price.toFixed(1));
+      });
+
+      if(JSON.stringify(manjian_disck) != "{}")
+      {
+          mjdis = manjian_disck.discount_val;
+      }
+      
+      if(JSON.stringify(hongbao_disck) != "{}")
+      {
+          hbdis = hongbao_disck.discount_val;
+      }
+      let fod_price_fix2 = fod_price_fix1 + delivery.deliver_price - hbdis - mjdis ;
+      let fod_price_fix = parseFloat(fod_price_fix2.toFixed(1));
+      console.log(fod_price_fix);
+      return fod_price_fix;
+    }
+
+    addNewOrder(e){
+      const {ordList} = this.props;
+      let ordInfo =  ordList[1];
+      console.log(uuidFix()) ;
+      const newOrd =  {id:uuidFix(),delivery:ordInfo.delivery,payment:ordInfo.payment, shopname:ordInfo.shopname, foods:ordInfo.foods, tel:ordInfo.tel,discount:ordInfo.discount,status: ordInfo.status};
+      this.props.addTodo(newOrd);
     }
 
     render(){
@@ -145,7 +203,7 @@ class DingDancreate extends React.Component{
                         }
 
                         <div className="food_item">
-                               <span>实付￥</span> 
+                               <span style={{marginLeft:'auto'}}>小计￥<span style={{fontWeight:'bold'}}>{(()=>this.calcprice())()}</span><span className="cancelflot"></span></span> 
                         </div>
                     </div>
 
@@ -156,7 +214,6 @@ class DingDancreate extends React.Component{
                     </div>
 
                     <div className="Inf_card">
-                        <div className="flexleft bold_font">订单信息</div>
                         <div className="Inf_cardChild"><span style={{flexShrink:'0',width:'61px'}}>订单备注: </span> <span className="cardChild_right" style={{flexGrow:'0'}}></span><span><Icon type="right" /></span></div>
                         <div className="Inf_cardChild"><span className="cardChild_left">支付方式: </span> <span className="cardChild_right">{ordInfo.payment}</span></div>
                         <div className="Inf_cardChild"> 
@@ -173,8 +230,22 @@ class DingDancreate extends React.Component{
                           </Picker> 
                         </div>
                     </div>
+                    <div className="b2ottom_bar">
+                      <span style={{float:'left',lineHeight:'60px',paddingLeft:'10px',fontWeight:'bold'}}>￥{(()=>this.calcprice())()}</span>
+                      <button onClick={()=>} className="createBtn">去结算</button>
+                    </div>
                 </div>)
     }
 }
 
-export default DingDancreate;
+const mapDispatchToProps = (dispatch)=>{
+  return {
+      addTodo(todo){
+          const action = AddItemAction(todo);
+          dispatch(action);
+      }
+  }
+};
+
+export default  connect(null, mapDispatchToProps)(DingDancreate);
+//export default DingDancreate;
