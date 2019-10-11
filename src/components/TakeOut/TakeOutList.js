@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../assets/css/takeout/takeoutlist.css';
 import Zonghe from './zonghe';
+import {Link} from 'react-router-dom'
 class TakeOutList extends React.Component{
     constructor(props){
         super(props);
@@ -9,7 +10,7 @@ class TakeOutList extends React.Component{
             text:'',
             select:'综合排序'
         }
-       this.click=this.click.bind(this);
+        this.click=this.click.bind(this);
         this.Ziclick=this.Ziclick.bind(this);
         this.click1=this.click1.bind(this);
         this.Ziclick1=this.Ziclick1.bind(this);
@@ -97,6 +98,7 @@ class TakeOutList extends React.Component{
                         this.props.data.list.map((val,index)=>{
                             return (
                                 <li key={index}>
+                                    <Link to='/business'>
                                     <div style={{float:'left',width:'20%'}}>
                                         <img src={val.img} style={{width:'60px',height:'60px',marginTop:'10px'}}/>
                                     </div>
@@ -125,6 +127,7 @@ class TakeOutList extends React.Component{
                                             <span style={{color:'#656567',fontSize:'10px',lineHeight:'14px'}}>{val.sport}</span>
                                         </div>
                                     </div>
+                                    </Link>
                                 </li>
                             )
                         })
