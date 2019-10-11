@@ -8,6 +8,7 @@ import shopcaron from '../../assets/img/find/shopcaron.jpg'
 import shopcaroff from '../../assets/img/find/shopcaroff.jpg'
 import fivestar from '../../assets/img/find/fivestar.png'
 import touxiang from "../../assets/img/find/touxiang.jpg"
+import clear from "../../assets/img/find/clear.png"
 import gaifan1 from "../../assets/img/find/gaifan1.jpg";
 import Index from "../Index"
 import store from "../../index";
@@ -26,7 +27,8 @@ class BusinessIndex1 extends React.Component{
             el:"全部",
             classify:0,
             num:0,
-            car:[{name:'first'}]
+            car:[{name:'first'}],
+            footer:false
         };
     }
     componentWillMount() {
@@ -36,12 +38,12 @@ class BusinessIndex1 extends React.Component{
         var arr=this.state.car;
         arr.forEach((val)=>{
             if(val.name=='first'){
-                arr.push({name,price,num:num+1});
+                arr.push({index1,index,name,price,num:num+1});
                 val.name='false'
             }else if(val.name==name){
                 val.num+=1;
             }else if(!arr.some((val)=>{return val.name==name})){
-                arr.push({name,price,num:num+1});
+                arr.push({index1,index,name,price,num:num+1});
             }
             this.setState({
                 car:arr
@@ -113,6 +115,22 @@ class BusinessIndex1 extends React.Component{
             el:res,
             classify:index
         })
+    }
+    clickFooter(){
+        this.setState({
+            footer:!this.state.footer
+        })
+    }
+    clickClear(){
+        store.dispatch({
+            type:"clear_all_num",
+        });
+        this.setState({
+            car:[{name:'first'}],
+            total:0,
+            num:0
+        });
+
     }
     render(){
         const tabs1 = [
@@ -271,7 +289,47 @@ class BusinessIndex1 extends React.Component{
                     </Tabs>
                 </div>
                 <div style={{height:"8%"}}> </div>
-                <div id="footer" >
+                <div id="selected" style={this.state.footer==true?{display:"block"}:{display:"none"}}>
+                    <div className="selected_top" >
+                        <p style={{display:'inline-block',width:'50%',color:"#6c6c6c",textAlign:'left',lineHeight:'45px'}}>已选商品</p>
+                        <p onClick={()=>this.clickClear()} style={{display:'inline-block',width:'50%',color:"#6c6c6c",textAlign:'right',lineHeight:'45px'}}>
+                            <img style={{}} src={clear} alt=""/>
+                            清空
+                        </p>
+                    </div>
+                    <div style={{background:"#fff",width:"100%",height:"73%",padding:"2%"}}>
+                        {
+
+                            this.state.car.slice(1).map((value,index)=> {
+                                return (
+                                    <div style={{display: "flex", alignItems: "center", fontSize: "16px",padding:"2px 0px"}}>
+                                        <div style={{width: "50%", textAlign: "left"}}>
+                                            {value.name}
+                                        </div>
+                                        <div style={{width: "30%", color: "red", textAlign: "left"}}>
+                                            {value.price}
+                                        </div>
+                                        <div style={{width: "20%"}}>
+                                            <span className="stepper" onClick={()=>this.stepReduce(value.index1,value.index,value.num,value.price,value.name)}>-</span>
+                                            <span className="stepvalue">{value.num}</span>
+                                            <span className="stepper" onClick={()=>this.stepAdd(value.index1,value.index,value.num,value.price,value.name)}>+</span>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+
+                        {/*<div style={{display:"flex",alignItems:"center",fontSize:"16px"}}>*/}
+                        {/*    <div style={{width:"50%",textAlign:"left"}}>*/}
+                        {/*        餐盒*/}
+                        {/*    </div>*/}
+                        {/*    <div style={{width:"30%",color:"red",textAlign:"left"}}>*/}
+                        {/*        ¥1.5*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+                    </div>
+                </div>
+                <div id="footer" onClick={()=>this.clickFooter()}>
                     <div style={{width:"20%",float:"left"}}>
                         <Badge text={this.state.num} style={{display:"inline-block",position:"absolute",top:"-20px",right:"0px"}}>
                             {

@@ -42,8 +42,8 @@ let businessindex = (state = list, action)=>{
         return newState;
     }
     if(action.type === "add_one_num"){
-        state[action.change.index1].content[action.change.index].num+=1;
         const newState = JSON.parse(JSON.stringify(state));
+        newState[action.change.index1].content[action.change.index].num+=1;
         return newState;
     }
     if(action.type === "reduce_one_num"){
@@ -56,6 +56,9 @@ let businessindex = (state = list, action)=>{
             const newState = JSON.parse(JSON.stringify(state));
             return newState;
         }
+    }
+    if(action.type === "clear_all_num"){
+        return list;
     }
 
     return state;
