@@ -7,7 +7,8 @@ import {BrowserRouter as Router, Route, NavLink, Switch, Redirect} from "react-r
 import Index from '../Index';
 import uuid from 'uuid';
 import {uuidFix} from '../../store/reducers/Order/orderreducers'
-import { green } from 'ansi-colors';
+import {connect} from 'react-redux';
+import {AddItemAction} from '../../store/action/actionCreator';
 
 var myDate = new Date();
 
@@ -42,6 +43,26 @@ const datelist = [
       num = '0' + num
     }
     return num;
+  }
+
+  export function getNowFormatDate() {
+    let seperator1 = "-";
+    let year = myDate.getFullYear();
+    let month = myDate.getMonth() + 1;
+    let strDate = myDate.getDate();
+    let mins = myDate.getMinutes();
+    let hours = myDate.getHours();
+    let min = addZero(mins);
+    let hour = addZero(hours);
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+
+    let currentdate = year + seperator1 + month + seperator1 + strDate + " "+ hour + ":" + min;
+    return currentdate;
   }
 
   function createTime(){
@@ -135,12 +156,13 @@ class DingDancreate extends React.Component{
       return fod_price_fix;
     }
 
-    addNewOrder(e){
+    addNewOrder(){
       const {ordList} = this.props;
+      const {addTodo} = this.props;
       let ordInfo =  ordList[1];
       console.log(uuidFix()) ;
-      const newOrd =  {id:uuidFix(),delivery:ordInfo.delivery,payment:ordInfo.payment, shopname:ordInfo.shopname, foods:ordInfo.foods, tel:ordInfo.tel,discount:ordInfo.discount,status: ordInfo.status};
-      this.props.addTodo(newOrd);
+      const newOrd =  {id:uuidFix(),delivery:ordInfo.delivery,payment:ordInfo.payment, shopname:ordInfo.shopname, foods:ordInfo.foods, tel:ordInfo.tel,discount:ordInfo.discount,status: ordInfo.status,createTime:getNowFormatDate()};
+      addTodo(newOrd);
     }
 
     render(){
@@ -232,7 +254,7 @@ class DingDancreate extends React.Component{
                     </div>
                     <div className="b2ottom_bar">
                       <span style={{float:'left',lineHeight:'60px',paddingLeft:'10px',fontWeight:'bold'}}>￥{(()=>this.calcprice())()}</span>
-                      <button onClick={()=>} className="createBtn">去结算</button>
+                      <button onClick={()=>this.addNewOrder()} className="createBtn">去结算</button>
                     </div>
                 </div>)
     }
@@ -240,8 +262,8 @@ class DingDancreate extends React.Component{
 
 const mapDispatchToProps = (dispatch)=>{
   return {
-      addTodo(todo){
-          const action = AddItemAction(todo);
+      addTodo(ordinfs){
+          const action = AddItemAction(ordinfs);
           dispatch(action);
       }
   }

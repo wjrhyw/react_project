@@ -10,7 +10,7 @@ export const getDelItemAction = (orderId) => ({
     orderId
 });
 
-export const AddItemAction = (orderId) => ({
-    type: 'del_order_item',
-    orderId
+export const AddItemAction = (orderinfs) => ({
+    type: 'add_order_item',
+    orderinfs
 });

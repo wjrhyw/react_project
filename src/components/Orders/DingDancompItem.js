@@ -54,7 +54,7 @@ class DingDancompItem extends React.Component{
                                     <div className="ArrowRight"></div>
                                 </div>
                                 <div className="Time">
-                                    2019-07-07 16:00
+                                {this.props.orders.createTime}
                                 </div>
                             </div>
                         </NavLink>

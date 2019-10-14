@@ -28,7 +28,7 @@ class DingDancompItemInf extends React.Component{
         let ordInfo =  ordList.find((item)=>{
             return item.id === id;
         });
-
+       
         let discheck1 = ordInfo.discount.manjian_dis;
         let discheck2 = ordInfo.discount.hongbao_dis;
 
@@ -89,7 +89,7 @@ class DingDancompItemInf extends React.Component{
                         <div className="flexleft bold_font">订单信息</div>
                         <div className="Inf_cardChild"><span style={{flexShrink:'0',width:'61px'}}>订单编号: </span> <span className="cardChild_right" style={{flexGrow:'0'}}>{ordInfo.id}</span></div>
                         <div className="Inf_cardChild"><span>支付方式: </span> <span className="cardChild_right">{ordInfo.payment}</span></div>
-                        <div className="Inf_cardChild"><span>下单时间: </span> <span className="cardChild_right">2019-07-07 16:00</span></div>
+                        <div className="Inf_cardChild"><span>下单时间: </span> <span className="cardChild_right">{ordInfo.createTime}</span></div>
                         {/* <div className="flexleft">{}</div>
                         <div className="flexleft"> {ordInfo}</div>
                         <div className="flexleft"> </div> */}
