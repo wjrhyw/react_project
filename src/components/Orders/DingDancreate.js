@@ -153,6 +153,7 @@ class DingDancreate extends React.Component{
       }
       let fod_price_fix2 = fod_price_fix1 + delivery.deliver_price - hbdis - mjdis ;
       let fod_price_fix = parseFloat(fod_price_fix2.toFixed(1));
+      newOrd.totalCost = fod_price_fix;
       return fod_price_fix;
     }
 
@@ -161,6 +162,11 @@ class DingDancreate extends React.Component{
       let a = price.replace(reg,"");
       let fixprice = parseFloat(a);
       return fixprice;
+    }
+
+    createNewOrder(){
+      this.props.addTodo(newOrd);
+      this.backNavRender();
     }
 
     addNewOrder(){
@@ -271,7 +277,7 @@ class DingDancreate extends React.Component{
                     </div>
                     <div className="b2ottom_bar">
                       <span style={{float:'left',lineHeight:'60px',paddingLeft:'10px',fontWeight:'bold'}}>￥{(()=>this.calcprice())()}</span>
-                      {/* <button onClick={this.props.addTodo(newOrd)} className="createBtn">去结算</button> */}
+                      <button onClick={()=>{this.createNewOrder()}} className="createBtn">去结算</button>
                       {/* <button className="createBtn">去结算</button> */}
                     </div>
                 </div>)

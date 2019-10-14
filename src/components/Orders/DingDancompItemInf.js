@@ -45,7 +45,7 @@ class DingDancompItemInf extends React.Component{
                         <div style={{textAlign:"left"}}>{ordInfo.foods.map((item,key)=>(
                             <div className="food_item" key={uuid()}>
                                 <span className="span_font_mid"><img className="img_border" src={require(`../../assets/img/foods/${item.foodname}.jpg`)}/></span>
-                                <span className="float_foodname span_font_mid" key = {key}>{item.foodname}</span>
+                                <span className="float_foodname span_font_mid" key = {key}>{`${item.foodname} x ${item.foodnum}`}</span>
                                 <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{item.foodprice}</span>
                             </div>)
                             )
@@ -73,7 +73,7 @@ class DingDancompItemInf extends React.Component{
                         }
 
                         <div className="food_item">
-                               <span>实付￥</span> 
+                               <span>实付￥{ordInfo.totalCost}</span> 
                         </div>
 
 
