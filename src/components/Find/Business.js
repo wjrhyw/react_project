@@ -17,6 +17,7 @@ import {connect} from "react-redux";
 import businessindex from "../../store/reducers/Find/businessreducers";
 import {GET_ALL_FIND} from "../../store/action/actionType";
 
+export var orderlist;
 
 class BusinessIndex1 extends React.Component{
     constructor(props){
@@ -101,7 +102,7 @@ class BusinessIndex1 extends React.Component{
         })
     };
     goSettlement=()=>{
-        var orderlist=this.state.car;
+        orderlist = this.state.car;
         console.log("列表为",orderlist);
     };
     click(e,index){

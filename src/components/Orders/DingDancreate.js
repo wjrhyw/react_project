@@ -9,9 +9,12 @@ import uuid from 'uuid';
 import {uuidFix} from '../../store/reducers/Order/orderreducers'
 import {connect} from 'react-redux';
 import {AddItemAction} from '../../store/action/actionCreator';
+import {orderlist} from '../Find/Business'
+
+var newOrd;
 
 var myDate = new Date();
-//console.log(orderlist);
+console.log(orderlist);
 const place = {name:"hxj",adress:"崧文苑15栋",phone1:"13988845678"}
 
 const datelist = [
@@ -60,7 +63,6 @@ const datelist = [
     if (strDate >= 0 && strDate <= 9) {
         strDate = "0" + strDate;
     }
-
     let currentdate = year + seperator1 + month + seperator1 + strDate + " "+ hour + ":" + min;
     return currentdate;
   }
@@ -125,8 +127,7 @@ class DingDancreate extends React.Component{
     }
 
     calcprice(){
-      const {ordList} = this.props;
-      let ordInfo =  ordList[1];
+      let ordInfo = newOrd;
       let fod_price= 0;
       let fod_price_fix1 = 0;
       let mjdis = 0;
@@ -136,7 +137,7 @@ class DingDancreate extends React.Component{
       let delivery = ordInfo.delivery;
 
       ordInfo.foods.forEach(element => {
-          fod_price = fod_price + element.foodprice;
+          fod_price = fod_price + (element.foodprice*element.foodnum);
           //console.log(fod_price);
           fod_price_fix1 = parseFloat(fod_price.toFixed(1));
       });
@@ -152,24 +153,40 @@ class DingDancreate extends React.Component{
       }
       let fod_price_fix2 = fod_price_fix1 + delivery.deliver_price - hbdis - mjdis ;
       let fod_price_fix = parseFloat(fod_price_fix2.toFixed(1));
-      console.log(fod_price_fix);
       return fod_price_fix;
     }
 
+    priceFix(price){
+      let reg = new RegExp("¥","g");
+      let a = price.replace(reg,"");
+      let fixprice = parseFloat(a);
+      return fixprice;
+    }
+
     addNewOrder(){
+      let objfood =[];
+      orderlist.map((item,key)=>{
+        let orderobj = {};
+        if(key != 0){
+          orderobj.foodname= item.name;
+          orderobj.foodprice= this.priceFix(item.price);
+          orderobj.foodnum= item.num;
+          objfood.push(orderobj);
+        }
+      })
       const {ordList} = this.props;
-      const {addTodo} = this.props;
+      //const {addTodo} = this.props;
       let ordInfo =  ordList[1];
-      console.log(uuidFix()) ;
-      const newOrd =  {id:uuidFix(),delivery:ordInfo.delivery,payment:ordInfo.payment, shopname:ordInfo.shopname, foods:ordInfo.foods, tel:ordInfo.tel,discount:ordInfo.discount,status: ordInfo.status,createTime:getNowFormatDate()};
-      addTodo(newOrd);
+      newOrd =  {id:uuidFix(),delivery:ordInfo.delivery,payment:ordInfo.payment, shopname:ordInfo.shopname, foods:objfood, tel:ordInfo.tel,discount:ordInfo.discount,status: ordInfo.status,createTime:getNowFormatDate()};
+      console.log("this is create",newOrd);
     }
 
     render(){
+      this.addNewOrder();
         const {ordList} = this.props;
-        let ordInfo =  ordList[1];
-        let discheck1 = ordInfo.discount.manjian_dis;
-        let discheck2 = ordInfo.discount.hongbao_dis;
+        let ordInfos =  newOrd;
+        let discheck1 = ordInfos.discount.manjian_dis;
+        let discheck2 = ordInfos.discount.hongbao_dis;
 
 
         return (<div id = 'ItemInfDad'>
@@ -193,11 +210,11 @@ class DingDancreate extends React.Component{
                         </Picker>
                     </div>
                     <div className="Inf_card">
-                        <div className="flexleft bold_font">{ordInfo.shopname}</div>
-                        <div style={{textAlign:"left"}}>{ordInfo.foods.map((item,key)=>(
+                        <div className="flexleft bold_font">{ordInfos.shopname}</div>
+                        <div style={{textAlign:"left"}}>{ordInfos.foods.map((item,key)=>(
                             <div className="food_item" key={uuid()}>
                                 <span className="span_font_mid"><img className="img_border" src={require(`../../assets/img/foods/${item.foodname}.jpg`)}/></span>
-                                <span className="float_foodname span_font_mid" key = {key}>{item.foodname}</span>
+                                <span className="float_foodname span_font_mid" key = {key}>{`${item.foodname} x ${item.foodnum}`}</span>
                                 <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{item.foodprice}</span>
                             </div>)
                             )
@@ -205,14 +222,14 @@ class DingDancreate extends React.Component{
                         </div>
                         <div className="food_item">
                                 <span className="minicard" style={{backgroundColor: 'rgb(63, 136, 231)',color:"rgb(247, 242, 242)"}}>配送费</span>
-                                <span className="float_foodname span_font_mid">{ordInfo.delivery.deliver_way}</span>
-                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.delivery.deliver_price}</span>
+                                <span className="float_foodname span_font_mid">{ordInfos.delivery.deliver_way}</span>
+                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfos.delivery.deliver_price}</span>
                         </div>
                         {(JSON.stringify(discheck1) != "{}")&&(
                         <div className="food_item">
                                 <span className="minicard" style={{backgroundColor: 'rgb(235, 120, 53, 0.849)',color:"rgb(247, 242, 242)"}}>满减</span>
-                                <span className="float_foodname span_font_mid">{ordInfo.discount.manjian_dis.discount_way}</span>
-                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfo.discount.manjian_dis.discount_val}</span>
+                                <span className="float_foodname span_font_mid">{ordInfos.discount.manjian_dis.discount_way}</span>
+                                <span style={{fontSize:"14px"}} className="span_font_mid bold_font">￥{ordInfos.discount.manjian_dis.discount_val}</span>
                         </div>)
                         }
 
@@ -231,13 +248,13 @@ class DingDancreate extends React.Component{
 
                     <div className="Inf_card">
                         <div className="flexleft bold_font">配送信息</div>
-                        <div className="Inf_cardChild"><span className="cardChild_left">电话:</span> <span className="cardChild_right">{ordInfo.tel}</span></div>
-                        <div className="Inf_cardChild"><span className="cardChild_left">配送方式:</span> <span className="cardChild_right">{ordInfo.delivery.deliver_way}</span></div>
+                        <div className="Inf_cardChild"><span className="cardChild_left">电话:</span> <span className="cardChild_right">{ordInfos.tel}</span></div>
+                        <div className="Inf_cardChild"><span className="cardChild_left">配送方式:</span> <span className="cardChild_right">{ordInfos.delivery.deliver_way}</span></div>
                     </div>
 
                     <div className="Inf_card">
                         <div className="Inf_cardChild"><span style={{flexShrink:'0',width:'61px'}}>订单备注: </span> <span className="cardChild_right" style={{flexGrow:'0'}}></span><span><Icon type="right" /></span></div>
-                        <div className="Inf_cardChild"><span className="cardChild_left">支付方式: </span> <span className="cardChild_right">{ordInfo.payment}</span></div>
+                        <div className="Inf_cardChild"><span className="cardChild_left">支付方式: </span> <span className="cardChild_right">{ordInfos.payment}</span></div>
                         <div className="Inf_cardChild"> 
                           <Picker
                           data={canjulist}
@@ -254,7 +271,8 @@ class DingDancreate extends React.Component{
                     </div>
                     <div className="b2ottom_bar">
                       <span style={{float:'left',lineHeight:'60px',paddingLeft:'10px',fontWeight:'bold'}}>￥{(()=>this.calcprice())()}</span>
-                      <button onClick={()=>this.addNewOrder()} className="createBtn">去结算</button>
+                      {/* <button onClick={this.props.addTodo(newOrd)} className="createBtn">去结算</button> */}
+                      {/* <button className="createBtn">去结算</button> */}
                     </div>
                 </div>)
     }
