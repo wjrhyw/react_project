@@ -101,8 +101,8 @@ class BusinessIndex1 extends React.Component{
         })
     };
     goSettlement=()=>{
-        var list=this.state.car;
-        console.log("列表为",list);
+        var orderlist=this.state.car;
+        console.log("列表为",orderlist);
     };
     click(e,index){
         console.log('被点击的是',e.target.innerHTML);
