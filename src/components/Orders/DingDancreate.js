@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 import {AddItemAction} from '../../store/action/actionCreator';
 
 var myDate = new Date();
-
+//console.log(orderlist);
 const place = {name:"hxj",adress:"崧文苑15栋",phone1:"13988845678"}
 
 const datelist = [
