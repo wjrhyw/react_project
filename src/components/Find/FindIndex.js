@@ -18,14 +18,10 @@ class FindIndex1 extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            show:true,
             list:[1,2,3]
         }
     }
     componentWillMount(){
-        this.setState({
-            show:true
-        })
         Index.show();
     }
     componentDidMount() {
@@ -38,13 +34,8 @@ class FindIndex1 extends React.Component{
                     type:GET_ALL_FIND,
                     list:res[0].foods
                 })
-                //两秒后取消loading
-                setTimeout(() => {
-                    this.setState({
-                        show:false
-                    })
-                }, 500);
-                 Loading1.hide();
+                Loading1.hide();
+              
             }
         )
     }

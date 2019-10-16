@@ -38,7 +38,7 @@ class Index extends Component{
   render(){
     return (
       <div style={{textAlign:'center'}}>
-        <div  style={{ position: 'fixed', height:'100%', width: '100%', top: 0 ,}}>
+        <div  style={{ position: 'fixed', height:'100%', width: '100%', top: 0 ,background:"white"}}>
         <TabBar
           hidden={this.state.hidden}
           unselectedTintColor="#949494"

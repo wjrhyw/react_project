@@ -16,8 +16,7 @@ class Search extends React.Component{
     }
     inputChange=()=>{
         var result=[];
-        var findinput=this.myref.current.value
-        console.log(findinput);
+        var findinput=this.myref.current.value;
         var req=request("get","/shopping/restaurants",{latitude:31.22967,longitude:121.4762});
         req.then(
             (res)=> {
@@ -38,18 +37,24 @@ class Search extends React.Component{
                 })
             }
         );
-        //将下拉的搜索框显示出来
-        document.getElementById("reslist").style.display="block"
+        if(findinput==""){
+            document.getElementById("reslist").style.display="none" 
+        }else{
+            //将下拉的搜索框显示出来
+            document.getElementById("reslist").style.display="block"
+        }
+        
     };
     resListClick=(value)=>{
         console.log(value);
         this.myref.current.value=value;
+        document.getElementById("reslist").style.display="none" 
     }
 
 
     render(){
         return (
-            <div>
+            <div style={{height:"100%",background:"white"}}>
                 <NavBar mode="dark" icon={<Icon type="left" />} onLeftClick={() => console.log('onLeftClick')}>搜索</NavBar>
                 <WingBlank>
                     <div style={{marginTop:'10px'}}>
